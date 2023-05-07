@@ -1,0 +1,3020 @@
+{
+    "id": "1",
+    "type": "request",
+    "reqTimeLineId": "LC-00000001",
+    "requestData": [
+        {
+            "method": "selectModel",
+            "description": "初始化/切换车型",
+            "dataUrl": "",
+            "data": [
+                //顶级车型信息
+                {
+                    "timeLineId": "LC-00000001",
+                    "groupCode": "E9",
+                    "groupName": "E9",
+                    "familyCode": "E9-1",
+                    "familyName": "E9顶配版",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //配置组是否可选
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏                
+                    "level": 0, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二 级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                    // 一级配置信息(场景|外观|内饰|动画|亮点|装备|其它)
+                },
+                {
+                    "timeLineId": "SCENE", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "EXT", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+                },
+                {
+                    "timeLineId": "INT", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序
+                },
+                {
+                    "timeLineId": "CAMERA", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序
+                },
+                {
+                    "timeLineId": "ACTION", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 5 //排序
+                },
+                {
+                    "timeLineId": "ADD", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 6 //排序
+                },
+                {
+                    "timeLineId": "LGITH", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 7 //排序
+                },
+                {
+                    "timeLineId": "OTHER", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "",
+                    "familyName": "",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "-", //配置方式 S 标配,O 选配,- 无               
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 1, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 8 //排序
+                },
+                {
+                    "timeLineId": "STAT", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "STAT",
+                    "familyName": "静态场景",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "DYNAMIC", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "DYNAMIC",
+                    "familyName": "动态场景",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    // 二级配置信息(外观下)
+                },
+                {
+                    "timeLineId": "EXTCOLOR", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "SIZE", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SIZE",
+                    "familyName": "尺寸",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "HEADLIGHT", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "HEADLIGHT",
+                    "familyName": "前灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序
+                },
+                {
+                    "timeLineId": "TAILLIGHT", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "TAILLIGHT",
+                    "familyName": "尾灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序	
+                },
+                {
+                    "timeLineId": "SKYLIGHT", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SKYLIGHT",
+                    "familyName": "天窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 5 //排序	
+                },
+                {
+                    "timeLineId": "WHEEL", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "WHEEL",
+                    "familyName": "轮毂",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 6 //排序			
+                },
+                {
+                    "timeLineId": "FRONTDOOR", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "FRONTDOOR",
+                    "familyName": "前门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 9 //排序
+                },
+                {
+                    "timeLineId": "BACKDOOR", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "BACKDOOR",
+                    "familyName": "后门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 10 //排序
+                },
+                {
+                    "timeLineId": "CARWINDOW", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "CARWINDOW",
+                    "familyName": "车窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 11 //排序
+                },
+                {
+                    "timeLineId": "XRAY", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "XRAY",
+                    "familyName": "透明度",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 13 //排序	 	
+
+                    // 二级配置信息(内饰下)
+                },
+                {
+                    "timeLineId": "INTCOLOR", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "INTCOLOR",
+                    "familyName": "内饰颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序				
+                },
+                // 二级配置信息(视角下)
+                {
+                    "timeLineId": "ATEXT", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATEXT",
+                    "familyName": "外观视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序	
+                },
+                {
+                    "timeLineId": "ATINT", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATINT",
+                    "familyName": "内饰视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序				
+
+                    // 二级配置信息(动画下)
+                },
+                {
+                    "timeLineId": "OPENCLOSE", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "OPENCLOSE",
+                    "familyName": "开关动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "开关动画",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序		
+                },
+                {
+                    "timeLineId": "RUN", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "RUN",
+                    "familyName": "路跑动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "INOUT", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "INOUT",
+                    "familyName": "出入动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+
+
+                    // 二级配置信息(装备下)
+                },
+                {
+                    "timeLineId": "ADD_EXT_XZ", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_XZ",
+                    "familyName": "外观选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序			
+                },
+                {
+                    "timeLineId": "ADD_EXT_JP", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_JP",
+                    "familyName": "外观精品",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序			
+                },
+                {
+                    "timeLineId": "ADD_INT_XZ", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序			
+                },
+                {
+                    "timeLineId": "ADD_INT_JP", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_JP",
+                    "familyName": "内饰精品",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序			
+                },
+                {
+                    "timeLineId": "LIG_EXT", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_EXT",
+                    "familyName": "外观亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序									
+                },
+                {
+                    "timeLineId": "LIG_INT", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_INT",
+                    "familyName": "内饰亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+                },
+                {
+                    "timeLineId": "SCREENSHOW", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SCREENSHOW",
+                    "familyName": "屏幕展示方式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "UESELECTOR", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UESELECTOR",
+                    "familyName": "滑动/重力模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+                },
+                {
+                    "timeLineId": "UESELECTOR", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UESELECTOR",
+                    "familyName": "UE内部选配器",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序
+                },
+                {
+                    "timeLineId": "UEMODE", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UEMODE",
+                    "familyName": "UE模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序
+                },
+                {
+                    "timeLineId": "SOURCETYPE", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SOURCETYPE",
+                    "familyName": "来源类型",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "",
+                    "featureName": "",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 2, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 5 //排序
+                },
+                //三级 静态场景下
+                {
+                    "timeLineId": "LV-00000001", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "STAT",
+                    "familyName": "静态场景",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OUTDOOR",
+                    "featureName": "户外场景",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "LV-00000002", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "STAT",
+                    "familyName": "静态场景",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "INDOOR",
+                    "featureName": "室内场景",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否 强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 动态场景下
+                },
+                {
+                    "timeLineId": "LV-00000003", //唯一编码
+                    "groupCode": "SCENE",
+                    "groupName": "场景",
+                    "familyCode": "DYNAMIC",
+                    "familyName": "动态场景",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "RUNSCENE",
+                    "featureName": "路跑场景",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+
+                    //三级 外观颜色下			
+                },
+                {
+                    "timeLineId": "FEXTC-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "EXTCOLOR_0001",
+                    "featureName": "刀影白",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTC-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "EXTCOLOR_0002",
+                    "featureName": "孔雀蓝",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+                },
+                {
+                    "timeLineId": "FEXTC-00000003", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "EXTCOLOR_0003",
+                    "featureName": "摩玺绿",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序
+                },
+                {
+                    "timeLineId": "FEXTC-00000004", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "EXTCOLOR_0004",
+                    "featureName": "殿藏金",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序
+                },
+                {
+                    "timeLineId": "FEXTC-00000005", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "EXTCOLOR",
+                    "familyName": "外观颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "EXTCOLOR_0005",
+                    "featureName": "典雅黑",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 5 //排序
+
+                    //三级 外观尺寸下		
+                },
+                {
+                    "timeLineId": "FEXTS-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SIZE",
+                    "familyName": "尺寸",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTS-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SIZE",
+                    "familyName": "尺寸",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 外观前灯下	
+                },
+                {
+                    "timeLineId": "FEXTHL-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "HEADLIGHT",
+                    "familyName": "前灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTHL-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "HEADLIGHT",
+                    "familyName": "前灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 外观尾灯下			
+                },
+                {
+                    "timeLineId": "FEXTTL-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "TAILLIGHT",
+                    "familyName": "尾灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTTL-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "TAILLIGHT",
+                    "familyName": "尾灯",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 外观天窗下				
+                },
+                {
+                    "timeLineId": "FEXTSL-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SKYLIGHT",
+                    "familyName": "天窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTSL-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "SKYLIGHT",
+                    "familyName": "天窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 外观轮毂下		
+                },
+                {
+                    "timeLineId": "FEXTW-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "WHEEL",
+                    "familyName": "轮毂",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "WHEEL_0001",
+                    "featureName": "外观轮毂1",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序	
+                },
+                {
+                    "timeLineId": "FEXTFD-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "FRONTDOOR",
+                    "familyName": "前门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTFD-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "FRONTDOOR",
+                    "familyName": "前门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    //三级 外观后门下	
+                },
+                {
+                    "timeLineId": "FEXTBD-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "BACKDOOR",
+                    "familyName": "后门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTBD-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "BACKDOOR",
+                    "familyName": "后门",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+
+                    //三级 外观车窗下	
+                },
+                {
+                    "timeLineId": "FEXTCW-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "CARWINDOW",
+                    "familyName": "车窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTCW-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "CARWINDOW",
+                    "familyName": "车窗",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+
+                    //三级 外观后备箱下	
+                },
+                {
+                    "timeLineId": "FEXTT-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "TRUNK",
+                    "familyName": "后备箱",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "开",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTT-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "TRUNK",
+                    "familyName": "后备箱",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+                    // 三级透明动画下
+                },
+                {
+                    "timeLineId": "FEXTX-00000001", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "XRAY",
+                    "familyName": "透明度",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "XRAY_0",
+                    "featureName": "不透明",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FEXTX-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "XRAY",
+                    "familyName": "透明度",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "XRAY_50",
+                    "featureName": "半透明",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "FEXTX-00000002", //唯一编码
+                    "groupCode": "EXT",
+                    "groupName": "外观",
+                    "familyCode": "XRAY",
+                    "familyName": "透明度",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "XRAY_100",
+                    "featureName": "全透明",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+                },
+                // 二级外观选配下
+                {
+                    "timeLineId": "FADDEX-00000001", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_XZ",
+                    "familyName": "外观选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_EXT_XZ_0001",
+                    "featureName": "双色改色车衣",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序			
+                },
+                {
+                    "timeLineId": "FADDEX-00000002", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_XZ",
+                    "familyName": "外观选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_EXT_XZ_0002",
+                    "featureName": "透明车衣",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序			
+
+                    // 二级配置信息(其它下)
+                },
+                {
+                    "timeLineId": "FADDEX-00000003", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_XZ",
+                    "familyName": "外观选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_EXT_XZ_0003",
+                    "featureName": "挡泥板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序			
+
+                    // 二级配置信息(其它下)
+                },
+                {
+                    "timeLineId": "FADDEX-00000004", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_EXT_XZ",
+                    "familyName": "外观选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_EXT_XZ_0004",
+                    "featureName": "发动机下护板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序			
+
+                    // 二级配置信息(其它下)
+                },
+                {
+                    "timeLineId": "FINTC-00000001", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "INTCOLOR",
+                    "familyName": "内饰颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "INTCOLOR_0001",
+                    "featureName": "巴黎歌剧",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FINTC-00000002", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "INTCOLOR",
+                    "familyName": "内饰颜色",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "INTCOLOR_0002",
+                    "featureName": "云山珠水",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	 
+
+                    //三级 内饰座位下	
+                },
+                {
+                    "timeLineId": "FINTS-00000001", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "SEATS",
+                    "familyName": "座位",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "SEATS_5",
+                    "featureName": "5座",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FINTS-00000002", //唯一编码
+                    "groupCode": "INT",
+                    "groupName": "内饰",
+                    "familyCode": "SEATS",
+                    "familyName": "座位",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "SEATS_7",
+                    "featureName": "7座",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序		
+
+                    // 三级外观视角下
+                },
+                {
+                    "timeLineId": "FEXTV-00000001", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATEXT",
+                    "familyName": "外观视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ATEXT_MAIN",
+                    "featureName": "外观主视角",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序		
+
+                    // 三级内饰视角下
+                },
+                {
+                    "timeLineId": "FINTV-00000001", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATINT",
+                    "familyName": "内饰视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ATINT_MAIN",
+                    "featureName": "主驾",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "FINTV-00000002", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATINT",
+                    "familyName": "内饰视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ATINT_DEPUTY",
+                    "featureName": "副驾",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "FINTV-00000003", //唯一编码
+                    "groupCode": "CAMERA",
+                    "groupName": "视角",
+                    "familyCode": "ATINT",
+                    "familyName": "内饰视角",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ATINT_BACK",
+                    "featureName": "后排",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+
+                    // 三级开关动画下
+                },
+                {
+                    "timeLineId": "AOPEN-00000001", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "OPENCLOSE",
+                    "familyName": "开关动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "SIZE",
+                    "featureName": "尺寸开关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序			
+                },
+                {
+                    "timeLineId": "AOPEN-00000002", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "OPENCLOSE",
+                    "familyName": "开关动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ALLLIGHT",
+                    "featureName": "车灯开关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+                },
+                {
+                    "timeLineId": "AOPEN-00000003", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "OPENCLOSE",
+                    "familyName": "开关动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ALLDOOR",
+                    "featureName": "车门开关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+                },
+                // {
+                //     "timeLineId": "AOPEN-00000004", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "HEADLIGHT",
+                //     "featureName": "前灯开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 4 //排序
+                // },
+                // {
+                //     "timeLineId": "AOPEN-00000005", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "TAILLIGHT",
+                //     "featureName": "尾灯开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 5 //排序
+                // },
+                //  {
+                //     "timeLineId": "AOPEN-00000006", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "FRONTDOOR",
+                //     "featureName": "前门开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 6 //排序	
+                // },
+                //  {
+                //     "timeLineId": "AOPEN-00000007", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "BACKDOOR",
+                //     "featureName": "后门开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 7 //排序		
+                // },
+                {
+                    "timeLineId": "AOPEN-00000008", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "OPENCLOSE",
+                    "familyName": "开关动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "CARWINDOW",
+                    "featureName": "车窗开关",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序					
+                },
+                // {
+                //     "timeLineId": "AOPEN-00000009", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "TRUNK",
+                //     "featureName": "后备箱开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 9 //排序
+                // },
+                //  {
+                //     "timeLineId": "AOPEN-00000010", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "OPENCLOSE",
+                //     "familyName": "开关动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "SKYLIGHT",
+                //     "featureName": "天窗开关",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 10 //排序													
+                //     // 三级路跑动画下
+                // },
+                {
+                    "timeLineId": "ARUN-00000001", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "RUN",
+                    "familyName": "路跑动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "RUN_1",
+                    "featureName": "路跑动画1",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                // {
+                //     "timeLineId": "ARUN-00000002", //唯一编码
+                //     "groupCode": "ACTION",
+                //     "groupName": "动画",
+                //     "familyCode": "RUN",
+                //     "familyName": "路跑动画",
+                //     "familyMode": "单选", //配置类型 单选,多选
+                //     "featureCode": "RUN_2",
+                //     "featureName": "路跑动画2",
+                //     "featureURL": "",
+                //     "featureHeight": "",
+                //     "featureWidth": "",
+                //     "display": true, //是否显示
+                //     "isDefault": false, //是否为默认
+                //     "selected": false, //是否选中
+                //     "selectable": true, //配置项是否可选
+                //     "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                //     "lightTitle": "", //亮点文本标题,可以为空
+                //     "lightRemark": "", //亮点文本描述,可以为空
+                //     "lightVideoURL": "", //亮点视频路径,可以为空
+                //     "forceFlag": false, //是否强制锁屏
+                //     "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                //     "sequences": 2 //排序
+                //     // 三级出入动画下
+                // },
+                {
+                    "timeLineId": "AI-00000001", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "INOUT",
+                    "familyName": "出入动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "INOUT_1",
+                    "featureName": "驶入动画",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序
+                },
+                {
+                    "timeLineId": "AI-00000002", //唯一编码
+                    "groupCode": "ACTION",
+                    "groupName": "动画",
+                    "familyCode": "INOUT",
+                    "familyName": "出入动画",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "INOUT_2",
+                    "featureName": "驶出动画",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序
+
+
+                    // 三级其它亮点下
+                },
+                // 三级外观亮点下
+                {
+                    "timeLineId": "SEXTL-00000001", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_EXT",
+                    "familyName": "外观亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "LIG_EXT_0001",
+                    "featureName": "新能源续航",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "新能源续航标题", //亮点文本标题,可以为空
+                    "lightRemark": "新能源续航备注", //亮点文本描述,可以为空
+                    "lightVideoURL": "新能源续航视频URL", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序				
+                },
+                {
+                    "timeLineId": "SEXTL-00000002", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_EXT",
+                    "familyName": "外观亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "LIG_EXT_0002",
+                    "featureName": "前脸",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "前脸标题", //亮点文本标题,可以为空
+                    "lightRemark": "前脸备注", //亮点文本描述,可以为空
+                    "lightVideoURL": "前脸视频URL", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序				
+
+                    // 三级内饰亮点下
+                },
+                {
+                    "timeLineId": "SINTL-00000001", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_INT",
+                    "familyName": "内饰亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "LIG_INT_0001",
+                    "featureName": "智能座舱",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "智能座舱标题", //亮点文本标题,可以为空
+                    "lightRemark": "智能座舱备注", //亮点文本描述,可以为空
+                    "lightVideoURL": "智能座舱视频URL", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序				
+                },
+                {
+                    "timeLineId": "SINTL-00000002", //唯一编码
+                    "groupCode": "LGITH",
+                    "groupName": "亮点",
+                    "familyCode": "LIG_INT",
+                    "familyName": "内饰亮点",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "LIG_INT_0002",
+                    "featureName": "全方位安全守护",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "全方位安全守护标题", //亮点文本标题,可以为空
+                    "lightRemark": "全方位安全守护备注", //亮点文本描述,可以为空
+                    "lightVideoURL": "全方位安全守护视频URL", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序				
+                },
+                // 三级内饰选装
+                {
+                    "timeLineId": "FADDIX-00000001", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0001",
+                    "featureName": "高级平面脚垫",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序	
+
+
+                    // 三级屏幕展示方式下			
+                },
+                {
+                    "timeLineId": "FADDIX-00000002", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0002",
+                    "featureName": "高级羊绒脚垫",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+
+
+                    // 三级屏幕展示方式下			
+                },
+                {
+                    "timeLineId": "FADDIX-00000003", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0003",
+                    "featureName": "木地板脚垫",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+
+
+                    // 三级屏幕展示方式下			
+                },
+                {
+                    "timeLineId": "FADDIX-00000004", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0004",
+                    "featureName": "游艇木地板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序	
+                },
+                {
+                    "timeLineId": "FADDIX-00000005", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "航空铝地板",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0005",
+                    "featureName": "航空铝地板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 5 //排序			
+                },
+                {
+                    "timeLineId": "FADDIX-00000006", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0006",
+                    "featureName": "碳纤维麻石地板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 6 //排序			
+                },
+                {
+                    "timeLineId": "FADDIX-00000007", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0007",
+                    "featureName": "流媒体电子后视镜",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 7 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000008", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0008",
+                    "featureName": "高级中排迎宾毯",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 8 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000009", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0009",
+                    "featureName": "二排LED迎宾踏板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 9 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000010", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0010",
+                    "featureName": "二排LED迎宾踏板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 10 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000011", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0011",
+                    "featureName": "后排吸顶影音娱乐系统",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 11 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000012", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0012",
+                    "featureName": "二排折叠小桌板",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 12 //排序				
+                },
+                {
+                    "timeLineId": "FADDIX-00000013", //唯一编码
+                    "groupCode": "ADD",
+                    "groupName": "装备",
+                    "familyCode": "ADD_INT_XZ",
+                    "familyName": "内饰选装",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ADD_INT_XZ_0013",
+                    "featureName": "车内窗帘",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 13 //排序				
+                },
+                {
+                    "timeLineId": "FOTHSS-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SCREENSHOW",
+                    "familyName": "屏幕展示方式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "HSCREEN",
+                    "featureName": "横屏",
+                    "vwidth": "1920",
+                    "vheight": "1080",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序		
+                },
+                {
+                    "timeLineId": "FOTHSS-00000002", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SCREENSHOW",
+                    "familyName": "屏幕展示方式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "VSCREEN",
+                    "featureName": "竖屏",
+                    "vwidth": "1080",
+                    "vheight": "1920",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序					
+
+                    // 三级滑动/重力模式下			
+                },
+                {
+                    "timeLineId": "FOTHSM-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SPMODE",
+                    "familyName": "滑动/重力模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "SLIDE",
+                    "featureName": "滑动模式",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序		
+                },
+                {
+                    "timeLineId": "FOTHSM-00000002", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SPMODE",
+                    "familyName": "滑动/重力模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "POWER",
+                    "featureName": "重力模式",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": false, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+
+                    // 三级UE内部选配器下			
+                },
+                {
+                    "timeLineId": "FOTHUS-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UESELECTOR",
+                    "familyName": "UE模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "ON",
+                    "featureName": "启用",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": true, //是否为默认
+                    "selected": true, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序		
+                },
+                {
+                    "timeLineId": "FOTHUS-00000002", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UESELECTOR",
+                    "familyName": "UE模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "OFF",
+                    "featureName": "关闭",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                // UE模式
+                {
+                    "timeLineId": "FOTHUM-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UEMODE",
+                    "familyName": "UE模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "UEMODE_01",
+                    "featureName": "移动简版",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序	
+                },
+                {
+                    "timeLineId": "FOTHUM-00000002", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UEMODE",
+                    "familyName": "UE模式",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "UEMODE_02",
+                    "featureName": "移动高级版",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "FOTHUM-00000003", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "UEMODE",
+                    "familyName": "UE内部选配器",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "UEMODE_03",
+                    "featureName": "PC版",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+                },
+                // 来源类别
+                {
+                    "timeLineId": "FOTHST-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SOURCETYPE",
+                    "familyName": "来源类型",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "APP_01",
+                    "featureName": "传祺微信小程序",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 1 //排序	
+                },
+                {
+                    "timeLineId": "FOTHST-00000002", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SOURCETYPE",
+                    "familyName": "来源类型",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "APP_02",
+                    "featureName": "传祺APP",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 2 //排序	
+                },
+                {
+                    "timeLineId": "FOTHST-00000003", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SOURCETYPE",
+                    "familyName": "来源类型",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "APP_03",
+                    "featureName": "传祺大屏WEB应用",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 3 //排序	
+                },
+                {
+                    "timeLineId": "FOTHST-00000004", //唯一编码
+                    "groupCode": "OTHER",
+                    "groupName": "其它",
+                    "familyCode": "SOURCETYPE",
+                    "familyName": "来源类型",
+                    "familyMode": "单选", //配置类型 单选,多选
+                    "featureCode": "APP_04",
+                    "featureName": "传祺其它应用",
+                    "featureURL": "",
+                    "featureHeight": "",
+                    "featureWidth": "",
+                    "display": true, //是否显示
+                    "isDefault": false, //是否为默认
+                    "selected": false, //是否选中
+                    "selectable": true, //配置项是否可选
+                    "configOption": "O", //配置方式 S 标配,O 选配,- 无
+                    "lightTitle": "", //亮点文本标题,可以为空
+                    "lightRemark": "", //亮点文本描述,可以为空
+                    "lightVideoURL": "", //亮点视频路径,可以为空
+                    "forceFlag": false, //是否强制锁屏
+                    "level": 3, //层级： 0 顶级(车型)|车型 ，1 一级 外观|内饰|动画|亮点，2 二级 外观颜色|内饰颜色...，3 三级 外观颜色编码1|外观颜色编码2|...
+                    "sequences": 4 //排序	
+                }
+            ]
+        }
+    ]
+}
