@@ -1,14 +1,14 @@
 #!/bin/bash
 
 PKG_SERVERS=(
-  "183.240.203.111"    #测试环境
+  "183.146.28.150"    #测试环境
 )
 DEFAULT_SERVER="183.240.203.111"
 DEFAULT_PORT='22'
 DEFAULT_ROOT='root'
-TAR_DIR='/opt/digital-human'
-TAR_NAME='digital-human.tar.gz'
-DIST='./build'
+TAR_DIR='/mnt/data/wwwroot/uat/trumpchi-e9-cloud'
+TAR_NAME='trumpchi-e9-cloud.tar.gz'
+DIST='./dist'
 
 echo "请选择要部署的服务器(序号)"
 select SERVER in ${PKG_SERVERS[@]}; do
