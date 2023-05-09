@@ -260,7 +260,7 @@ export default {
             height: 100%;
             display: flex;
             background-image: url("../images/bg.png");
-            // background-size: 300%;
+            background-size: 100%;
             background-repeat: no-repeat;
             background-position: top;
 

@@ -26,7 +26,7 @@
 import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
 import Loading from "@/components/Loading.vue"
-import Gacrender from "../utils/Gacrender1.0.2.js"
+import Gacrender from "../utils/Gacrender1.0.3.js"
 import qs from 'qs'
 export default {
   components: { ButtomMenu, Loading, CarSelect },
@@ -143,6 +143,18 @@ export default {
             //初始化画面
             window.handlerEnter()
           }
+
+          else if (
+            e.data.code == "200" && e.data.reqTimeLineId === 'GETS-00000008'
+          ) {
+            if (e.data.responseData && e.data.responseData.length) {
+              console.log('curLevel:', e.data.responseData[0].data[0].curLevel)
+              if (e.data.responseData[0].data[0].curLevel > 1) {
+                window.app.ueBack()
+              }
+            }
+            //初始化画面
+          }
           // else {
           //   this.flag = true
           //   this.code = "6006:系统异常,请联系管理员"
@@ -168,6 +180,7 @@ export default {
       this.showBackIcon = true
       this.showMusicIcon = true
     },
+
     handlerInitialization() {
       this.showLoading = true
       this.enter = false
@@ -190,7 +203,8 @@ export default {
       this.isPlaying ? this.audio.pause() : this.audio.play()
     },
     handlerBack() {
-      window.app.ueBack()
+      window.app.getStatus("GETS-00000008")
+      // window.app.ueBack()
     },
     checkset(el, methodsName) {
       window.app[methodsName](el)

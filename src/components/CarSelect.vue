@@ -34,8 +34,8 @@ export default {
             openList: false,
             carList: [
                 { title: 'E9', version: '宗师', timeLineId: 'LC-00000001' },
-                { title: 'E9', version: '顶配版', timeLineId: 'LC-00000002' },
-                { title: 'E9', version: '高配版', timeLineId: 'LC-00000003' }
+                { title: 'E9', version: 'MAX', timeLineId: 'LC-00000002' },
+                { title: 'E9', version: 'PRO', timeLineId: 'LC-00000003' }
             ],
         }
     },
@@ -103,7 +103,7 @@ export default {
             left: 0;
             width: 100%;
             border-radius: 5px;
-            background-color: white;
+            // background-color: white;
             transform-origin: top;
             border: 1px solid while;
             bottom: -120px;
