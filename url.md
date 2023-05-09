@@ -1,1 +1,1 @@
-http://uatgq.3dcat.live/trumpchi-e9-cloud/?soucetype="app_01"&timelineid="lc-00000001"&appkey="pkpfx3qp4sytg92t"&uemode="uemode_01"&deploy="2"&screenshow="vscreen"&ueselector="on"&uid="123"#/
+http://uatgq.3dcat.live/trumpchi-e9-cloud/?souceType="APP_01"&appKey="HA7YHLNhOH4nq7Zy"&ueMode="UEMODE_01"&deploy="1"&ueSelector="ON"&uid="123"#/

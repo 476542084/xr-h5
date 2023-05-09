@@ -1,51 +1,13 @@
 <template>
   <div class="apps">
     <div class="screen-c" :id="box">
-      <!-- <div v-if="flag" class="mistake">{{ code }}</div> -->
-      <Loading v-if="showLoading && !flag" />
+      <div v-if="flag" class="mistake">{{ code }}</div>
+      <Loading v-if="showLoading" />
       <!-- <Loading /> -->
-      <ButtomMenu v-if="enter && !flag" :isMiniprogram=false />
+      <ButtomMenu v-if="enter" :isMiniprogram=isMiniprogram />
 
       <!-- car select list -->
-      <div class="car-list">
-        <h4 class="title">{{ activeCar.title }}</h4>
-        <div class="car-content">
-          <div class="version" @click.stop="() => {
-            this.openList = !this.openList
-          }">
-            <span>{{ activeCar.version }}</span>
-            <i class="icon" :style="openList ? `transform: rotate(180deg);` : 'unset'"><svg width="1em" height="1em"
-                viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(0.8);">
-                <path
-                  d="M1.222 1.039a.5.5 0 0 1 .707 0l2.18 2.18 2.118-2.117a.5.5 0 0 1 .707 0l.353.353a.5.5 0 0 1 0 .707L4.46 4.991a.5.5 0 0 1-.707 0l-.354-.354a.504.504 0 0 1-.048-.055L.868 2.1a.5.5 0 0 1 0-.707l.354-.354Z"
-                  fill="#919499"></path>
-              </svg></i>
-          </div>
-          <div class="car-select" :style="`position: absolute;
-  z-index: 10;
-  top: '100%';
-  left: 0;
-  width: 100%;
-  border-radius: 5px;
-  background-color: white;
-  transform-origin: top;
-  border: 1px solid while;
-  bottom: -120px;
-  opacity: ${openList ? 1 : 0};
-                                      transform:${openList ? 'scaleY(1)' : 'scaleY(0)'};
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  padding: 5px 0;
-  max-height: 200px;
-  overflow-y: auto;`">
-            <div class="car-item" v-for="(car, index) in carList" :key="`car-${index}`" @click.stop="()=>{
-              this.activeCar = car
-              // console.log()
-            }" >
-              {{ car.version }}
-            </div>
-          </div>
-        </div>
-      </div>
+      <CarSelect v-if="showCarSelect" :activeCar="activeCar" :onChange="handerCarChange" />
 
       <!-- music play -->
       <img class="musicIcon" v-if="showMusicIcon" @click.stop="toggleMusicPlay()" src="../images/icon/music.png"
@@ -61,31 +23,27 @@
   </div>
 </template>
 <script>
+import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
 import Loading from "@/components/Loading.vue"
 import Gacrender from "../utils/Gacrender1.0.2.js"
 import qs from 'qs'
 export default {
-  components: { ButtomMenu, Loading },
+  components: { ButtomMenu, Loading, CarSelect },
   name: "ViEw",
   data() {
     return {
       activeCar: { title: 'E9', version: '宗师', timeLineId: 'LC-00000001' },
-      carList: [
-        { title: 'E9', version: '宗师', timeLineId: 'LC-00000001' },
-        { title: 'E9', version: '顶配版', timeLineId: 'LC-00000002' },
-        { title: 'E9', version: '高配版', timeLineId: 'LC-00000003' }
-      ],
-      openList: false,
+      isMiniprogram: navigator.userAgent.includes("miniProgram"),
       params: null,
-      timer: null,
       showLoading: true,
       enter: false,
       flag: false,
-      audio: HTMLElement,
+      audio: HTMLAudioElement,
       isPlaying: false,
-      showBackIcon: true,
-      showMusicIcon: true,
+      showCarSelect: false,
+      showBackIcon: false,
+      showMusicIcon: false,
 
 
       code: '--',
@@ -132,6 +90,7 @@ export default {
     }
   },
   mounted() {
+    window.handlerEnter = this.handlerEnter
     this.audio = document.getElementById("bg-audio");
     if (this.audio) {
       this.audio.onplaying = () => this.isPlaying = true
@@ -171,11 +130,23 @@ export default {
           ) {
             this.flag = true
             this.code = "6005:资源繁忙,请稍后重试"
-          }
-          else {
+          } else if (
+            e.data.code == "运行失败"
+          ) {
             this.flag = true
-            this.code = "6006:系统异常,请联系管理员"
+            this.code = "运行失败"
           }
+          else if (
+            e.data.code == "7002"
+          ) {
+            console.log('e.data.code', e.data.code)
+            //初始化画面
+            window.handlerEnter()
+          }
+          // else {
+          //   this.flag = true
+          //   this.code = "6006:系统异常,请联系管理员"
+          // }
         } else {
           console.log('interaction')
           //接口UE4服务器推送的消息
@@ -188,37 +159,38 @@ export default {
       },
       false
     )
-    this.timer = window.setInterval(() => {
-      if (window.launch) {
-        if (window.launch.getPlayer()) {
-          if (!this.isBlackScreen(window.launch.getPlayer().videoElement)) {
-            window.clearInterval(this.timer)
-            this.showLoading = false
-            this.enter = true
-          }
-        }
-      }
-    }, 50)
   },
   methods: {
+    handlerEnter() {
+      this.showLoading = false
+      this.enter = true
+      this.showCarSelect = true
+      this.showBackIcon = true
+      this.showMusicIcon = true
+    },
+    handlerInitialization() {
+      this.showLoading = true
+      this.enter = false
+      this.showCarSelect = false
+      this.showBackIcon = false
+      this.showMusicIcon = false
+    },
+    handerCarChange(car) {
+      if (car.timeLineId !== this.activeCar.timeLineId) {
+        try {
+          this.handlerInitialization()
+          window.app.selectModel(car.timeLineId)
+        } catch (error) {
+          console.error(error)
+        }
+      }
+      this.activeCar = car
+    },
     toggleMusicPlay() {
       this.isPlaying ? this.audio.pause() : this.audio.play()
     },
     handlerBack() {
       window.app.ueBack()
-    },
-    isBlackScreen(videoElement) {
-      const canvas = document.createElement('canvas')
-      const ctx = canvas.getContext('2d')
-      canvas.width = videoElement.videoWidth / 50
-      canvas.height = videoElement.videoHeight / 50
-      ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
-      if (canvas.width) {
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)?.data
-        return imageData.every((pixel) => pixel === 0x0 || pixel === 0x1 || pixel === 0xff)
-      } else {
-        return true
-      }
     },
     checkset(el, methodsName) {
       window.app[methodsName](el)
@@ -247,19 +219,23 @@ export default {
         this.flag = true
         this.code = "6000:系统来源参数不能为空"
         return
-      } else if (!params.timeLineId || params.souceType === "\"") {
-        this.flag = true
-        this.code = "6001:时间线ID参数不能为空"
-        return
-      } else if (!params.appKey || params.appKey === "\"") {
+      }
+      // else if (!params.timeLineId || params.souceType === "\"") {
+      //   this.flag = true
+      //   this.code = "6001:时间线ID参数不能为空"
+      //   return
+      // }
+      else if (!params.appKey || params.appKey === "\"") {
         this.flag = true
         this.code = "6002:appKey参数不能为空"
         return
-      } else if (!this.carlist.includes(params.timeLineId)) {
-        this.flag = true
-        this.code = "6003:时间线ID无效"
-        return
-      } else if (!params.ueMode || params.ueMode === "\"") {
+      }
+      // else if (!this.carlist.includes(params.timeLineId)) {
+      //   this.flag = true
+      //   this.code = "6003:时间线ID无效"
+      //   return
+      // }
+      else if (!params.ueMode || params.ueMode === "\"") {
         this.flag = true
         this.code = "6007:非法UE模式"
         return
@@ -270,10 +246,12 @@ export default {
       else if (!this.deploylist.includes(params.deploy)) {
         this.flag = true
         this.code = "6008:非法UE服务部署方式"
-      } else if (!this.screenShowlist.includes(params.screenShow.toUpperCase())) {
-        this.flag = true
-        this.code = "6009:非法屏幕展示方式"
-      } else if (!this.ueSelectorlist.includes(params.ueSelector.toUpperCase())) {
+      }
+      //  else if (!this.screenShowlist.includes(params.screenShow.toUpperCase())) {
+      //   this.flag = true
+      //   this.code = "6009:非法屏幕展示方式"
+      // } 
+      else if (!this.ueSelectorlist.includes(params.ueSelector.toUpperCase())) {
         this.flag = true
         this.code = "6010:非法UE内部选配器"
       } else if (!this.souceTypelist.includes(params.souceType.toUpperCase())) {
@@ -285,11 +263,11 @@ export default {
         this.code = "6008:非法UE服务部署方式"
         return
       }
-      else if (!params.screenShow || params.screenShow === "\"") {
-        this.flag = true
-        this.code = "6009:非法屏幕展示方式"
-        return
-      }
+      // else if (!params.screenShow || params.screenShow === "\"") {
+      //   this.flag = true
+      //   this.code = "6009:非法屏幕展示方式"
+      //   return
+      // }
       else if (!params.ueSelector || params.ueSelector === "\"") {
         this.flag = true
         this.code = "6010:非法UE内部选配器"
@@ -301,10 +279,10 @@ export default {
           // appKey: process.env.VUE_APP_appKey,
           appKey: this.params.appKey,
           boxId: this.box,
-          deploy: process.env.VUE_APP_deploy,
+          deploy: this.params.deploy,
           souceType: this.souceType.toUpperCase(),
           ueMode: this.ueMode.toUpperCase(),
-          screenShow: this.screenShow.toUpperCase(),//根据ueMode判断
+          screenShow: this.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN",//根据ueMode判断
           ueSelector: this.ueSelector.toUpperCase(),
           webAddress: process.env.VUE_APP_webAddress
         }
@@ -345,13 +323,18 @@ export default {
 }
 
 .car-list {
-  width: 100px;
+  width: 80px;
   display: flex;
   flex-flow: column;
+  color: #fffffd;
+  position: absolute;
+  left: 20px;
+  top: 20px;
 
   .title {
     font-size: 36px;
     font-weight: bold;
+    text-shadow: 2px 2px 4px #443c3c;
   }
 
   .car-content {
@@ -360,10 +343,10 @@ export default {
     position: relative;
 
     .version {
-      font-size: 26px;
+      font-size: 20px;
       font-weight: bold;
       position: relative;
-
+      text-shadow: 2px 2px 4px #443c3c;
     }
 
     .icon {
@@ -374,8 +357,8 @@ export default {
       font-style: normal;
       font-size: 18px;
       // width: 30px;
-      height: 37px;
-      line-height: 37px;
+      height: 30px;
+      line-height: 30px;
       text-align: center;
       color: #b0b6bc;
       border-radius: 0 5px 5px 0;
@@ -393,11 +376,13 @@ export default {
     .car-item {
       height: 36px;
       line-height: 36px;
+      text-shadow: 2px 2px 4px #443c3c;
     }
   }
 }
 
 .musicIcon {
+  z-index: 9999;
   position: absolute;
   right: 90px;
   top: 20px;
@@ -405,6 +390,7 @@ export default {
 }
 
 .backIcon {
+  z-index: 9999;
   position: absolute;
   right: 20px;
   top: 20px;
@@ -453,7 +439,7 @@ export default {
 }
 
 .mistake {
-  z-index: 3;
+  z-index: 99999999;
   width: 100vw;
   height: 100vh;
   font-size: 26px;

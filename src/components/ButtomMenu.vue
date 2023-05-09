@@ -116,7 +116,7 @@ export default {
             }
         },
         handleClickBtn(item, index) {
-            return;
+            // return;
             this.currBtnName = item.name;
             if (item.name === "分享") {
                 this.showShare = true;
