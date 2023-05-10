@@ -13,8 +13,8 @@
                     <div class="item_line right"></div>
                 </div>
             </div>
-            <img class="btn_img" src="../images/main_btn_white.png" alt="" @click.stop="handleShowMenu"
-                :class="{ miniprogram: isMiniprogram }" />
+            <!-- <img class="btn_img" src="../images/main_btn_white.png" alt="" @click.stop="handleShowMenu"
+                :class="{ miniprogram: isMiniprogram }" /> -->
         </div>
         <open-app v-if="!isMiniprogram"></open-app>
         <div class="share-sheet">
@@ -260,7 +260,7 @@ export default {
             height: 100%;
             display: flex;
             background-image: url("../images/bg.png");
-            background-size: 100%;
+            background-size: 120%;
             background-repeat: no-repeat;
             background-position: top;
 

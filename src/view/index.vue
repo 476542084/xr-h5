@@ -5,9 +5,9 @@
       <Loading v-if="showLoading" />
       <!-- <Loading /> -->
       <ButtomMenu v-if="enter" :isMiniprogram=isMiniprogram />
-
       <!-- car select list -->
       <CarSelect v-if="showCarSelect" :activeCar="activeCar" :onChange="handerCarChange" />
+      <!-- <CarSelect :activeCar="activeCar" :onChange="handerCarChange" /> -->
 
       <!-- music play -->
       <img class="musicIcon" v-if="showMusicIcon" @click.stop="toggleMusicPlay()" src="../images/icon/music.png"
@@ -33,7 +33,7 @@ export default {
   name: "ViEw",
   data() {
     return {
-      activeCar: { title: 'E9', version: '宗师', timeLineId: 'LC-00000001' },
+      activeCar: { title: '传祺E9', version: '宗师', timeLineId: 'LC-00000001' },
       isMiniprogram: navigator.userAgent.includes("miniProgram"),
       params: null,
       showLoading: true,
@@ -319,6 +319,11 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@font-face {
+  font-family: YouSheBiaoTiHei;
+  src: url(../utils/YouSheBiaoTiHei-2.ttf);
+}
+
 .apps {
   overflow: hidden;
   position: fixed;
@@ -336,64 +341,6 @@ export default {
   position: relative;
 }
 
-.car-list {
-  width: 80px;
-  display: flex;
-  flex-flow: column;
-  color: #fffffd;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-
-  .title {
-    font-size: 36px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #443c3c;
-  }
-
-  .car-content {
-    display: flex;
-    flex-flow: column;
-    position: relative;
-
-    .version {
-      font-size: 20px;
-      font-weight: bold;
-      position: relative;
-      text-shadow: 2px 2px 4px #443c3c;
-    }
-
-    .icon {
-      cursor: pointer;
-      position: absolute;
-      right: -1px;
-      top: -1px;
-      font-style: normal;
-      font-size: 18px;
-      // width: 30px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      color: #b0b6bc;
-      border-radius: 0 5px 5px 0;
-      background-color: white;
-      border-left-color: transparent;
-      display: flex;
-      align-items: center;
-    }
-
-    .car-select {
-      display: flex;
-      flex-flow: column;
-    }
-
-    .car-item {
-      height: 36px;
-      line-height: 36px;
-      text-shadow: 2px 2px 4px #443c3c;
-    }
-  }
-}
 
 .musicIcon {
   z-index: 9999;
