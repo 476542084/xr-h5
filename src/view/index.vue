@@ -3,11 +3,12 @@
     <div class="screen-c" :id="box">
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
-      <!-- <Loading /> -->
-      <ButtomMenu v-if="enter" :isMiniprogram=isMiniprogram />
+
+      <ButtomMenu v-if="enter" :isMiniprogram=isMiniprogram :goodId=params.goodsCarId :activityId=params.id
+        :shareUrl=params.shareUrl />
+
       <!-- car select list -->
       <CarSelect v-if="showCarSelect" :activeCar="activeCar" :onChange="handerCarChange" />
-      <!-- <CarSelect :activeCar="activeCar" :onChange="handerCarChange" /> -->
 
       <!-- music play -->
       <img class="musicIcon" v-if="showMusicIcon" @click.stop="toggleMusicPlay()" src="../images/icon/music.png"
@@ -26,7 +27,7 @@
 import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
 import Loading from "@/components/Loading.vue"
-import Gacrender from "../utils/Gacrender1.0.3.js"
+import Gacrender from "../utils/Gacrender1.0.6.js"
 import qs from 'qs'
 export default {
   components: { ButtomMenu, Loading, CarSelect },
@@ -44,7 +45,7 @@ export default {
       showCarSelect: false,
       showBackIcon: false,
       showMusicIcon: false,
-
+      obj: null,
 
       code: '--',
       box: "box",
@@ -145,14 +146,35 @@ export default {
           }
 
           else if (
-            e.data.code == "200" && e.data.reqTimeLineId === 'GETS-00000008'
+            e.data.code == "200"
           ) {
-            if (e.data.responseData && e.data.responseData.length) {
-              console.log('curLevel:', e.data.responseData[0].data[0].curLevel)
-              if (e.data.responseData[0].data[0].curLevel > 1) {
-                window.app.ueBack()
+            if (e.data.reqTimeLineId === 'GETS-00000008') {
+              try {
+                if (e.data.responseData && e.data.responseData.length) {
+                  console.log('curLevel:', e.data.responseData[0].data[0].curLevel)
+                  if (e.data.responseData[0].data[0].curLevel > 1) {
+                    window.app.ueBack()
+                  }
+                }
+              } catch (error) {
+                console.error(error)
               }
             }
+
+            if (e.data.reqTimeLineId === "GETS-00000001") {
+              try {
+                if (e.data.responseData && e.data.responseData.length) {
+                  console.log('getStatus:', e.data.responseData[0].data)
+                  const obj = e.data.responseData[0].data
+                  // this.obj = e.data.responseData[0].data
+                  window.app.selectModel(window.activeCar.timeLineId, obj, "click")
+                }
+              } catch (error) {
+                console.error(error)
+              }
+            }
+
+
             //初始化画面
           }
           // else {
@@ -191,16 +213,23 @@ export default {
     handerCarChange(car) {
       if (car.timeLineId !== this.activeCar.timeLineId) {
         try {
-          this.handlerInitialization()
-          window.app.selectModel(car.timeLineId)
+          window.activeCar = car
+          this.activeCar = car
+          // this.handlerInitialization()
+          // window.app.selectModel(car.timeLineId)
+          // console.log('car.timeLineId', car.timeLineId)
+          this.getStatusByTimeLineId()
         } catch (error) {
           console.error(error)
         }
       }
-      this.activeCar = car
+
     },
     toggleMusicPlay() {
       this.isPlaying ? this.audio.pause() : this.audio.play()
+    },
+    getStatusByTimeLineId() {
+      window.app.getStatus('GETS-00000001')
     },
     handlerBack() {
       window.app.getStatus("GETS-00000008")

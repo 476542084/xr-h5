@@ -1,9 +1,10 @@
 <template>
     <div class="loading-container">
-        <img class="bg" src="../images/loading-gif.gif" alt="bg-color">
+        <img class="bg" alt="bg" src="../images/new-bg.png">
         <!-- <img class="building" src="../images/building.png" alt="building">
         <img class="car" src="../images/car.png" alt="car">
         <img class="car_shadow" src="../images/car_shadow.png" alt="car_shadow"> -->
+        <img id="car-frame" :src="frame_bg" alt="car">
 
         <div class="percent-container">
             <img class="loading-bar" src="../images/loading-bar.png" alt="">
@@ -16,6 +17,8 @@
     </div>
 </template>
 <script>
+const imgCount = 89
+const delay = 3000 / imgCount
 export default {
     name: "Loading-page",
     data() {
@@ -24,6 +27,7 @@ export default {
             tipTimer: null,
             percentTimer: null,
             tipImage: require('../images/loading-step1.png'),
+            frame_bg: ''
         }
     },
     methods: {
@@ -42,6 +46,23 @@ export default {
         }
     },
     mounted() {
+        const img = document.querySelector("#car-frame")
+        const animation = (i) => {
+            if (i === imgCount) {
+                animation(0)
+                return
+            }
+            const num = i.toString().padStart(5, '0')
+            // img.src = require(`../images/frame/loading_${num}.png`)
+            this.frame_bg = require(`../images/frame/loading_${num}.png`)
+            img.onload = () => {
+                setTimeout(() => {
+                    animation(i + 1)
+                }, delay);
+            }
+        }
+        animation(0)
+
         this.tipTimer = window.setInterval(() => {
             this.tipImage = require(`../images/loading-step${this.randomNum(1, 3)}.png`)
         }, 1500)
@@ -82,11 +103,11 @@ export default {
         z-index: 3;
     }
 
-    .car {
+    #car-frame {
         position: absolute;
         transform: translate(-50%, 0);
         left: 50%;
-        top: 29%;
+        top: 8rem;
         width: 90%;
         z-index: 4;
     }

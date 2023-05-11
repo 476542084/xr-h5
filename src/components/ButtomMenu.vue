@@ -16,9 +16,11 @@
             <!-- <img class="btn_img" src="../images/main_btn_white.png" alt="" @click.stop="handleShowMenu"
                 :class="{ miniprogram: isMiniprogram }" /> -->
         </div>
-        <open-app v-if="!isMiniprogram"></open-app>
+        <!-- <open-app v-if="!isMiniprogram"></open-app> -->
         <div class="share-sheet">
-            <van-share-sheet v-model="showShare" title="立即分享给好友" :options="options" @select="onSelect" />
+            <van-share-sheet :show="showShare" title="立即分享给好友" :options="options" @select="onSelect" @cancel="() => {
+                    showShare = false
+                }" />
         </div>
         <div class="app-download-miniprogram" v-if="isMiniprogram && showDownloadCode" @click="setDownloadFalse">
             <div @click.stop class="code">
@@ -119,6 +121,7 @@ export default {
             // return;
             this.currBtnName = item.name;
             if (item.name === "分享") {
+                console.log('item', item)
                 this.showShare = true;
                 //TODO
             } else {
@@ -137,8 +140,11 @@ export default {
         onSelect(option) {
             this.showShare = false;
             // let currAccList = this.mainScene.currAccList.join(",");
-            let url = this.shareUrl;
+            let url = this.shareUrl || window.location.href;
             console.log(url);
+            console.log(option);
+
+
             const item = {
                 url,
                 name: "M8宗师版",
