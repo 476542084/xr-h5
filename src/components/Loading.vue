@@ -1,9 +1,9 @@
 <template>
     <div class="loading-container">
-        <img class="bg" src="../images/bg-color.png" alt="bg-color">
-        <img class="building" src="../images/building.png" alt="building">
+        <img class="bg" src="../images/loading-gif.gif" alt="bg-color">
+        <!-- <img class="building" src="../images/building.png" alt="building">
         <img class="car" src="../images/car.png" alt="car">
-        <img class="car_shadow" src="../images/car_shadow.png" alt="car_shadow">
+        <img class="car_shadow" src="../images/car_shadow.png" alt="car_shadow"> -->
 
         <div class="percent-container">
             <img class="loading-bar" src="../images/loading-bar.png" alt="">
@@ -11,7 +11,7 @@
         </div>
         <img class="tip" :src="tipImage" alt="">
 
-        <img class="bottom_logo" src="../images/bottom_logo.png" alt="bottom_logo">
+        <!-- <img class="bottom_logo" src="../images/bottom_logo.png" alt="bottom_logo"> -->
 
     </div>
 </template>

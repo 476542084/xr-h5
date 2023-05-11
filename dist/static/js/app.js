@@ -104,7 +104,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"render\": function() { return /* binding */ render; }\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n/* harmony import */ var _images_bg_color_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/bg-color.png */ \"./src/images/bg-color.png\");\n/* harmony import */ var _images_building_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/building.png */ \"./src/images/building.png\");\n/* harmony import */ var _images_car_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/car.png */ \"./src/images/car.png\");\n/* harmony import */ var _images_car_shadow_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/car_shadow.png */ \"./src/images/car_shadow.png\");\n/* harmony import */ var _images_loading_bar_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/loading-bar.png */ \"./src/images/loading-bar.png\");\n/* harmony import */ var _images_bottom_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/bottom_logo.png */ \"./src/images/bottom_logo.png\");\n\n\n\n\n\n\n\nconst _withScopeId = n => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)(\"data-v-efe9d588\"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n);\nconst _hoisted_1 = {\n  class: \"loading-container\"\n};\nconst _hoisted_2 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"bg\",\n  src: _images_bg_color_png__WEBPACK_IMPORTED_MODULE_1__,\n  alt: \"bg-color\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_3 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"building\",\n  src: _images_building_png__WEBPACK_IMPORTED_MODULE_2__,\n  alt: \"building\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_4 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"car\",\n  src: _images_car_png__WEBPACK_IMPORTED_MODULE_3__,\n  alt: \"car\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_5 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"car_shadow\",\n  src: _images_car_shadow_png__WEBPACK_IMPORTED_MODULE_4__,\n  alt: \"car_shadow\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_6 = {\n  class: \"percent-container\"\n};\nconst _hoisted_7 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"loading-bar\",\n  src: _images_loading_bar_png__WEBPACK_IMPORTED_MODULE_5__,\n  alt: \"\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_8 = {\n  class: \"percent\"\n};\nconst _hoisted_9 = [\"src\"];\nconst _hoisted_10 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"bottom_logo\",\n  src: _images_bottom_logo_png__WEBPACK_IMPORTED_MODULE_6__,\n  alt: \"bottom_logo\"\n}, null, -1 /* HOISTED */));\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(\"div\", _hoisted_1, [_hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"span\", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.percentage) + \"%\", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n    class: \"tip\",\n    src: $data.tipImage,\n    alt: \"\"\n  }, null, 8 /* PROPS */, _hoisted_9), _hoisted_10]);\n}\n\n//# sourceURL=webpack://qql/./src/components/Loading.vue?./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use%5B0%5D!./node_modules/vue-loader/dist/templateLoader.js??ruleSet%5B1%5D.rules%5B3%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B0%5D.use%5B0%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"render\": function() { return /* binding */ render; }\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm-bundler.js\");\n/* harmony import */ var _images_loading_gif_gif__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/loading-gif.gif */ \"./src/images/loading-gif.gif\");\n/* harmony import */ var _images_loading_bar_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/loading-bar.png */ \"./src/images/loading-bar.png\");\n\n\n\nconst _withScopeId = n => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)(\"data-v-efe9d588\"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n);\nconst _hoisted_1 = {\n  class: \"loading-container\"\n};\nconst _hoisted_2 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"bg\",\n  src: _images_loading_gif_gif__WEBPACK_IMPORTED_MODULE_1__,\n  alt: \"bg-color\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_3 = {\n  class: \"percent-container\"\n};\nconst _hoisted_4 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n  class: \"loading-bar\",\n  src: _images_loading_bar_png__WEBPACK_IMPORTED_MODULE_2__,\n  alt: \"\"\n}, null, -1 /* HOISTED */));\nconst _hoisted_5 = {\n  class: \"percent\"\n};\nconst _hoisted_6 = [\"src\"];\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(\"div\", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(\" <img class=\\\"building\\\" src=\\\"../images/building.png\\\" alt=\\\"building\\\">\\n        <img class=\\\"car\\\" src=\\\"../images/car.png\\\" alt=\\\"car\\\">\\n        <img class=\\\"car_shadow\\\" src=\\\"../images/car_shadow.png\\\" alt=\\\"car_shadow\\\"> \"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"span\", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.percentage) + \"%\", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"img\", {\n    class: \"tip\",\n    src: $data.tipImage,\n    alt: \"\"\n  }, null, 8 /* PROPS */, _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(\" <img class=\\\"bottom_logo\\\" src=\\\"../images/bottom_logo.png\\\" alt=\\\"bottom_logo\\\"> \")]);\n}\n\n//# sourceURL=webpack://qql/./src/components/Loading.vue?./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use%5B0%5D!./node_modules/vue-loader/dist/templateLoader.js??ruleSet%5B1%5D.rules%5B3%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B0%5D.use%5B0%5D");
 
 /***/ }),
 
@@ -180,7 +180,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".car-list[data-v-5d2bf1f0] {\\n  z-index: 9999;\\n  width: 120px;\\n  display: flex;\\n  flex-flow: column;\\n  color: #fffffd;\\n  position: absolute;\\n  left: 20px;\\n  top: 20px;\\n  font-family: YouSheBiaoTiHei;\\n}\\n.car-list .title[data-v-5d2bf1f0] {\\n  font-size: 34px;\\n  text-shadow: 2px 2px 4px #443c3c;\\n}\\n.car-list .car-content[data-v-5d2bf1f0] {\\n  display: flex;\\n  flex-flow: column;\\n  position: relative;\\n}\\n.car-list .car-content .version[data-v-5d2bf1f0] {\\n  font-size: 17px;\\n  position: relative;\\n  text-shadow: 2px 2px 4px #443c3c;\\n}\\n.car-list .car-content .icon[data-v-5d2bf1f0] {\\n  cursor: pointer;\\n  position: absolute;\\n  right: -5px;\\n  top: 1px;\\n  font-style: normal;\\n  font-size: 18px;\\n  height: 22px;\\n  line-height: 22px;\\n  text-align: center;\\n  color: #b0b6bc;\\n  border-radius: 0 5px 5px 0;\\n  border-left-color: transparent;\\n  display: flex;\\n  align-items: center;\\n}\\n.car-list .car-content .icon svg[data-v-5d2bf1f0] {\\n  filter: drop-shadow(1px 1px 4px rgb(0 0 0));\\n}\\n.car-list .car-content .car-select[data-v-5d2bf1f0] {\\n  box-sizing: border-box;\\n  display: flex;\\n  flex-flow: column;\\n  position: absolute;\\n  z-index: 10;\\n  top: 100%;\\n  left: 0;\\n  width: 100%;\\n  transform-origin: top;\\n  border: 1px solid while;\\n  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\\n  max-height: 200px;\\n  overflow-y: auto;\\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;\\n}\\n.car-list .car-content .car-item[data-v-5d2bf1f0] {\\n  height: 36px;\\n  line-height: 36px;\\n  font-size: 17px;\\n  color: #58595B;\\n  padding-left: 8px;\\n}\\n.car-list .car-content .active[data-v-5d2bf1f0] {\\n  color: white;\\n  background-color: #56a6e4;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://qql/./src/components/CarSelect.vue?./node_modules/css-loader/dist/cjs.js??clonedRuleSet-32.use%5B1%5D!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-32.use%5B2%5D!./node_modules/less-loader/dist/cjs.js??clonedRuleSet-32.use%5B3%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B0%5D.use%5B0%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".car-list[data-v-5d2bf1f0] {\\n  z-index: 9999;\\n  width: 120px;\\n  display: flex;\\n  flex-flow: column;\\n  color: #fffffd;\\n  position: absolute;\\n  left: 20px;\\n  top: 20px;\\n  font-family: YouSheBiaoTiHei;\\n}\\n.car-list .title[data-v-5d2bf1f0] {\\n  font-size: 34px;\\n  text-shadow: 2px 2px 4px #443c3c;\\n}\\n.car-list .car-content[data-v-5d2bf1f0] {\\n  display: flex;\\n  flex-flow: column;\\n  position: relative;\\n}\\n.car-list .car-content .version[data-v-5d2bf1f0] {\\n  font-size: 17px;\\n  position: relative;\\n  text-shadow: 2px 2px 4px #443c3c;\\n}\\n.car-list .car-content .icon[data-v-5d2bf1f0] {\\n  cursor: pointer;\\n  position: absolute;\\n  right: -5px;\\n  top: 1px;\\n  font-style: normal;\\n  font-size: 18px;\\n  height: 22px;\\n  line-height: 22px;\\n  text-align: center;\\n  color: #b0b6bc;\\n  border-radius: 0 5px 5px 0;\\n  border-left-color: transparent;\\n  display: flex;\\n  align-items: center;\\n}\\n.car-list .car-content .icon svg[data-v-5d2bf1f0] {\\n  filter: drop-shadow(1px 1px 4px rgb(0 0 0));\\n}\\n.car-list .car-content .car-select[data-v-5d2bf1f0] {\\n  box-sizing: border-box;\\n  display: flex;\\n  flex-flow: column;\\n  position: absolute;\\n  z-index: 10;\\n  top: 100%;\\n  left: 0;\\n  width: 100%;\\n  transform-origin: top;\\n  border: 1px solid while;\\n  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\\n  max-height: 200px;\\n  overflow-y: auto;\\n  background-color: white;\\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;\\n}\\n.car-list .car-content .car-item[data-v-5d2bf1f0] {\\n  height: 36px;\\n  line-height: 36px;\\n  font-size: 17px;\\n  color: #58595B;\\n  padding-left: 8px;\\n}\\n.car-list .car-content .active[data-v-5d2bf1f0] {\\n  color: white;\\n  background-color: #56a6e4;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://qql/./src/components/CarSelect.vue?./node_modules/css-loader/dist/cjs.js??clonedRuleSet-32.use%5B1%5D!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-32.use%5B2%5D!./node_modules/less-loader/dist/cjs.js??clonedRuleSet-32.use%5B3%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B0%5D.use%5B0%5D");
 
 /***/ }),
 
@@ -519,17 +519,6 @@ eval("module.exports = __webpack_require__.p + \"static/img/applogo.7e516c48.png
 
 /***/ }),
 
-/***/ "./src/images/bg-color.png":
-/*!*********************************!*\
-  !*** ./src/images/bg-color.png ***!
-  \*********************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"static/img/bg-color.23d99d74.png\";\n\n//# sourceURL=webpack://qql/./src/images/bg-color.png?");
-
-/***/ }),
-
 /***/ "./src/images/bg.png":
 /*!***************************!*\
   !*** ./src/images/bg.png ***!
@@ -538,50 +527,6 @@ eval("module.exports = __webpack_require__.p + \"static/img/bg-color.23d99d74.pn
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"static/img/bg.95e1c65c.png\";\n\n//# sourceURL=webpack://qql/./src/images/bg.png?");
-
-/***/ }),
-
-/***/ "./src/images/bottom_logo.png":
-/*!************************************!*\
-  !*** ./src/images/bottom_logo.png ***!
-  \************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"static/img/bottom_logo.2c7fcbb9.png\";\n\n//# sourceURL=webpack://qql/./src/images/bottom_logo.png?");
-
-/***/ }),
-
-/***/ "./src/images/building.png":
-/*!*********************************!*\
-  !*** ./src/images/building.png ***!
-  \*********************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"static/img/building.4b47e31c.png\";\n\n//# sourceURL=webpack://qql/./src/images/building.png?");
-
-/***/ }),
-
-/***/ "./src/images/car.png":
-/*!****************************!*\
-  !*** ./src/images/car.png ***!
-  \****************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"static/img/car.6be7d5a8.png\";\n\n//# sourceURL=webpack://qql/./src/images/car.png?");
-
-/***/ }),
-
-/***/ "./src/images/car_shadow.png":
-/*!***********************************!*\
-  !*** ./src/images/car_shadow.png ***!
-  \***********************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"static/img/car_shadow.232e838c.png\";\n\n//# sourceURL=webpack://qql/./src/images/car_shadow.png?");
 
 /***/ }),
 
@@ -626,6 +571,17 @@ eval("module.exports = \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQC
 
 "use strict";
 eval("module.exports = \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAA8CAMAAAAUhQWjAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADNQTFRFAAAASExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZSExZ83gf0AAAABF0Uk5TAHCAQDDw/9CgwGAQkFDgsCBvu5uiAAADSklEQVR4nO1Z2ZLjIAwcG8dXHIf//9rd2CBZjeQkW7A1rqLfGBEJtQ5k5uenoqKioqKiQqJpCZk1k16XWbGO7tYHDJk1R719boYMjNHelFdvR47MeRVbmAoR58iRkFpTRCHHKLWavHpbcuS+/6EvZCgCicuFhRQXNhTAGXDPq5hSNtReV8pQwAOJy4U16n3ua2LsltlQQAvEZQN2X1fKUMAIxOUCZ1Kh2kZg96X1EUOoz7smjBzrslDbnppjYOxpbQ+EekveGY6QgfnEkUir04Wb7U6X9b3fOaCaCYxZnmAmIqyI0AYHa4l9fml1YfuJZVrP546ETGwM8Wr4gd3XSJ4gNozPJ07GEY4Vx4ve2B/EljqrVcy045OI3nTZZnvRZdEyK/anoY9iK2Cj4Qh2X3bMSV5eKy7ARhxFMvyUy1ZnjCPUaGL+/SoptCZCcvyJEd1ySY7GHc19r9bRSVODNNXLJSseMEJOE/PvJ+n2w3AEiaOTqzQLzMIUFDMHzwFjIfRczHdNDEQko3QC9BQmJKnuMR1B/XRRTs6WQ9+HgEHSJoTy7/XMQyS9hHJxlKc7a0yNtAyEqwy/Yew4Aiq1qsDhBqkQImp0TCc42ytmkcs01ShCT5VQqFUcpROQ+TCSdlIhqCPjEl5snTTC01SjdauKoVZxlE6A3Re6PajT/dhlVK17blCKLrtiTDVI2iQT32ReAjI/gmO7QgrBIMM1O+fg0YIsz6plUrwiY04TcwhGudv63sdmQakNRGxL+Q0GnVkejC3r3fBtDUgi4JpWYNv7y7mbpTq+tF5CmGZZ00vI58TaXoCxmxSHzDh8zbhj9OMAg+BMncAeYOuwxvjzkCEAqAy/rYFvh/jDN8SuYTV+704ccWeWk24YQi9rwKPYGuLN19DDwbe+NxoK/In2vf6MwTjphvjZo08g3w7xx7MNr6pzxnm2zf4fpni9G2KEkovb+lixX0M9P8ZvIbkfXucZ8f1g1oRB6lVZYNjBkz9v9poYDC0fOHIJvJ99LwIuAOsJ5SJInpEvg4ecROCz90Jo+9YdQN2y0GtrOVjXmfWE8mthXSP/6Rk5H4ybdy3zn5WCMAJiPQX9WnSThuZy8aioqKioqKj4Bn8AudVNE1ZkLb0AAAAASUVORK5CYII=\";\n\n//# sourceURL=webpack://qql/./src/images/loading-bar.png?");
+
+/***/ }),
+
+/***/ "./src/images/loading-gif.gif":
+/*!************************************!*\
+  !*** ./src/images/loading-gif.gif ***!
+  \************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+eval("module.exports = __webpack_require__.p + \"static/img/loading-gif.70360325.gif\";\n\n//# sourceURL=webpack://qql/./src/images/loading-gif.gif?");
 
 /***/ }),
 

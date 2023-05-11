@@ -119,7 +119,7 @@ export default {
             transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
             max-height: 200px;
             overflow-y: auto;
-
+            background-color: white;
             // border: 0.5px solid #58595B;
             // box-shadow: -1px 1px 6px #58595B;
             // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
