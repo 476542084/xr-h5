@@ -1,0 +1,288 @@
+@import "../common/index.less";
+
+/*适配iphone5*/
+@media screen and (orientation: portrait) and (max-width: @size_320) {
+    html {
+        font-size: 30px !important;
+    }
+}
+
+/*适配iphone6plus*/
+@media screen and (orientation: portrait) and (min-width: @size_321) and (max-width: @size_414) {
+    html {
+        font-size: 37.5px !important;
+    }
+}
+
+/*适配ipad*/
+@media screen and (orientation: portrait) and (min-width: @size_415) and (max-width: @size_768) {
+    html {
+        font-size: 45px !important;
+    }
+}
+
+/*适配ipad pro*/
+@media screen and (orientation: portrait) and (min-width: @size_769) and (max-width: @size_1024) {
+    html {
+        font-size: 58.92px !important;
+    }
+}
+
+/*适配ipad pro*/
+@media screen and (orientation: portrait) and (min-width: @size_1025) {
+    html {
+        font-size: 58.92px !important;
+    }
+}
+
+/*适配iphone5*/
+@media screen and (orientation: landscape) and (max-width: @size_568) {
+    html {
+        font-size: 30px !important;
+    }
+}
+
+/*适配iphone6plus*/
+@media screen and (orientation: landscape) and (min-width: @size_667) and (max-width: @size_812) {
+    html {
+        font-size: 37.5px !important;
+    }
+}
+
+/*适配 iPad，iPad Pro*/
+@media screen and (orientation: landscape) and (min-width: @size_813) and (max-width: @size_1024) {
+    html {
+        font-size: 45px !important;
+    }
+}
+
+/*适配 Pc*/
+@media screen and (orientation: landscape) and (min-width: @size_1025) and (max-width: @size_1366) {
+    html {
+        font-size: 40px !important;
+    }
+}
+
+/*适配 Pc*/
+@media screen and (orientation: landscape) and (min-width: @size_1367) and (max-width: @size_1680) {
+    html {
+        font-size: 50px !important;
+    }
+}
+
+/*适配 Pc*/
+@media screen and (orientation: landscape) and (min-width: @size_1681) {
+    html {
+        font-size: 60px !important;
+    }
+}
+
+/* 定义多个全局样式 */
+:global {
+    /*公共样式--开始*/
+    html,
+    body,
+    div,
+    ul,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    dl,
+    dt,
+    dd,
+    ol,
+    form,
+    input,
+    textarea,
+    th,
+    td,
+    select {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: "PingFangSC-Light", "Microsoft Yahei", "SimHei", "sans-serif";
+
+        // 滚动条整体部分，其中的属性有width,height,background,border等（就和一个块级元素一样）
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 100%;
+            background: lighten(black, 30%);
+        }
+
+        // 滚动条里面可以拖动的那部分
+        &::-webkit-scrollbar-thumb {
+            background: lighten(black, 30%);
+            border-radius: 10px;
+        }
+
+        // 外层轨道，可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果
+        &::-webkit-scrollbar-track {
+            background: lighten(black, 10%);
+        }
+
+        // 滚动条两端的按钮
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        // 内层轨道，滚动条中间部分
+        &::-webkit-scrollbar-track-piece {
+            visibility: hidden;
+        }
+
+        // 边角
+        &::-webkit-scrollbar-corner {
+            border-radius: 10px;
+        }
+    }
+
+    html,
+    body {
+        min-height: 100%;
+    }
+
+    // 字体
+    body {
+        font-family: "SimHei", "PingFangSC-Light", "Microsoft Yahei", "sans-serif";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: normal;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    img {
+        border: none;
+        vertical-align: middle;
+    }
+
+    a {
+        text-decoration: none;
+        color: #232323;
+    }
+
+    table {
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    input,
+    textarea {
+        outline: none;
+        border: none;
+    }
+
+    textarea {
+        resize: none;
+        overflow: auto;
+    }
+
+    button {
+        border: unset;
+        outline: none;
+    }
+
+    /*公共样式--结束*/
+
+    body {
+        margin: 0;
+        user-select: none;
+        background-color: transparent !important;
+    }
+
+    #app {
+        height: 100%;
+        overflow: auto;
+    }
+
+    .ant-message {
+        z-index: 222 !important;
+    }
+
+    @media screen and (max-width: 1280px) {
+        .scaleContainer {
+            transform: scale(@scale_lt1280);
+        }
+    }
+
+    @media screen and (min-width: 1281px) and (max-width: 1366px) {
+        .scaleContainer {
+            transform: scale(@scale_gt1280);
+        }
+    }
+
+    @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .scaleContainer {
+            transform: scale(@scale_gt1366);
+        }
+    }
+
+    @media screen and (min-width: 1441px) and (max-width: 1600px) {
+        .scaleContainer {
+            transform: scale(@scale_gt1440);
+        }
+    }
+
+    @media screen and (min-width: 1601px) and (max-width: 1920px) {
+        .scale_container {
+            transform: scale(@scale_gt1600);
+        }
+    }
+
+    @media screen and (min-width: 1921px) {
+        .scale_container {
+            transform: scale(@scale_gt1920);
+        }
+    }
+}
+.border {
+    &::before {
+        position: absolute;
+        content: " ";
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 130%;
+        background: linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        opacity: 0.5;
+        height: 1px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .transformScale {
+        transform: scale(0.7);
+    }
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1600px) {
+    .transformScale {
+        transform: scale(0.8);
+    }
+  }
+  @media screen and (min-width: 1600px) and (max-width: 1800px) {
+    .transformScale {
+        transform: scale(0.9);
+    }
+  }
