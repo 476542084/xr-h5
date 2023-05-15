@@ -4,8 +4,7 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
-      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram"  :goodId="193" :activityId="240"
-        :shareUrl="params.shareUrl" />
+      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="193" :activityId="240" />
 
       <!-- car select list -->
       <CarSelect v-if="showCarSelect" :activeCar="activeCar" :onChange="handerCarChange" />
@@ -27,6 +26,7 @@ import ButtomMenu from "@/components/ButtomMenu.vue";
 import Loading from "@/components/Loading.vue";
 import Gacrender from "../utils/Gacrender1.0.6.js";
 import qs from "qs";
+import { timeLineIdMapNum } from "@/utils/map";
 export default {
   components: { ButtomMenu, Loading, CarSelect },
   name: "ViEw",
@@ -83,7 +83,7 @@ export default {
       this.audio.onpause = () => (this.isPlaying = false);
     }
     setTimeout(() => {
-      document.title = "广汽传祺";
+      document.title = "广汽传祺 E9";
     }, 100);
     this.getUrlParam();
     let that = this
@@ -145,9 +145,20 @@ export default {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
                   console.log("getStatus:", e.data.responseData[0].data);
-                  window.carStatus = e.data.responseData[0].data
+                  const carStatus = e.data.responseData[0].data
+                  window.carStatus = carStatus
+                  //window.carStatus
+                  if (Array.isArray(carStatus) && carStatus.length) {
+                    carStatus.forEach((status) => {
+                      const num = timeLineIdMapNum.get(status.timeLineId)
+                      console.log('num', num, status.timeLineId)
+                      if (num) {
+                        window.optionMap = !window.optionMap ? num : `${window.optionMap},${num}`
+                      }
+                    })
+                  }
+
                   const obj = e.data.responseData[0].data;
-                  
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -331,6 +342,19 @@ export default {
         console.log("obj", obj);
         let app = new Gacrender(obj);
         window.app = app;
+        // const objArray = [{
+        //   familyCode: "EXTCOLOR",
+        //   featureCode: "EXTCOLOR_0006",
+        //   groupCode: "EXT",
+        //   timeLineId: "FEXTC-00000006",
+        //   selected: true
+        // }, {
+        //   familyCode: "INTCOLOR",
+        //   featureCode: "INTCOLOR_0002",
+        //   groupCode: "Int",
+        //   timeLineId: "FINTC-00000002",
+        //   selected: true
+        // }]
         app.selectModel("LC-00000001");
       }
     },
