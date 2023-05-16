@@ -24,9 +24,9 @@
 import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
 import Loading from "@/components/Loading.vue";
-import Gacrender from "../utils/Gacrender1.0.6.js";
+import Gacrender from "../utils/Gacrender.js";
 import qs from "qs";
-import { timeLineIdMapNum } from "@/utils/map";
+import { timeLineIdMapNum, numMapObj } from "@/utils/map";
 export default {
   components: { ButtomMenu, Loading, CarSelect },
   name: "ViEw",
@@ -144,14 +144,15 @@ export default {
             if (e.data.reqTimeLineId === "GETS-00000001") {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
-                  console.log("getStatus:", e.data.responseData[0].data);
+                  // console.log("getStatus:", e.data.responseData[0].data);
                   const carStatus = e.data.responseData[0].data
                   window.carStatus = carStatus
                   //window.carStatus
                   if (Array.isArray(carStatus) && carStatus.length) {
+                    window.optionMap = ''
                     carStatus.forEach((status) => {
                       const num = timeLineIdMapNum.get(status.timeLineId)
-                      console.log('num', num, status.timeLineId)
+                      // console.log('num', num, status.timeLineId)
                       if (num) {
                         window.optionMap = !window.optionMap ? num : `${window.optionMap},${num}`
                       }
@@ -189,7 +190,6 @@ export default {
                 console.error(error);
               }
             }
-
             //初始化画面
           }
           // else {
@@ -355,7 +355,37 @@ export default {
         //   timeLineId: "FINTC-00000002",
         //   selected: true
         // }]
-        app.selectModel("LC-00000001");
+        let objArray = []
+        if (this.params.optionMap) {
+          // console.log('this.params.optionMap', this.params.optionMap)
+          objArray = this.params.optionMap.split(',').map((option) => {
+            // console.log('option', option, +option, numMapObj.get(+option))
+            return numMapObj.get(+option)
+          })
+          app.selectModel("LC-00000001",
+            // objArray,
+            objArray.concat(
+              {
+                "timeLineId": "FOTHSS-00000001", //唯一编码
+                "groupCode": "OTHER",
+                "familyCode": "SCREENSHOW",
+                "featureCode": "HSCREEN",
+                "selected": true
+              })
+          );
+
+          console.info('selectModel:objArray-------', objArray.concat({
+            "timeLineId": "FOTHSS-00000001", //唯一编码
+            "groupCode": "OTHER",
+            "familyCode": "SCREENSHOW",
+            "featureCode": "HSCREEN",
+            "selected": true
+          }))
+        } else {
+          app.selectModel("LC-00000001");
+        }
+        // console.log('objArray', objArray)
+        // app.selectModel("LC-00000001");
       }
     },
     url_encode(url) {

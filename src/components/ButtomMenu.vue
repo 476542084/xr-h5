@@ -6,8 +6,8 @@
           :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="handleClickBtn(btn, idx)">
           <div class="item_line left"></div>
           <div class="item_box">
-            <img v-show="btn.name == currBtnName" :src="btn.icon" alt="" />
-            <img v-show="btn.name != currBtnName" :src="btn.activeIcon" alt="" />
+            <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
+            <img v-show="btn.name != currBtnName" :src="btn.icon" alt="" />
             <div class="item_name">{{ btn.name }}</div>
           </div>
           <div class="item_line right"></div>
@@ -151,8 +151,8 @@ export default {
       this.showShare = false;
       // let currAccList = this.mainScene.currAccList.join(",");
       let url = this.shareUrl || window.location.href.split("#")[0];
-      console.log(url);
-      console.log(option);
+      console.log('share before url', url)
+      // console.log(option);
       if (window.optionMap) {
         if (new URLSearchParams(window.location.search).get('optionMap')) {
           //url含有分享的optionMap，需要重置且设置新的有效值
@@ -163,7 +163,7 @@ export default {
         }
       }
 
-      console.log('url', url)
+      console.log('share after url', url)
       const item = {
         url,
         name: "传祺E9",
@@ -172,6 +172,7 @@ export default {
         shareCallback: "shareCallback",
       };
       console.log('share item', item)
+
       if (option.name === "微信") {
         //TODO
         //微信分享app方法
@@ -181,6 +182,7 @@ export default {
         //朋友圈分享app方法
         window.tool.timeLineShare(item);
       }
+      
     },
   },
 };
@@ -310,8 +312,8 @@ export default {
           }
 
           img {
-            width: 30;
-            height: 30px;
+            width: 25px;
+            height: 25px;
           }
         }
       }
@@ -338,7 +340,7 @@ export default {
 
       .btn_item:nth-child(1) {
         .item_box {
-          top: 0;
+          top: 5px;
           left: 55%;
         }
 
@@ -365,7 +367,7 @@ export default {
 
       .btn_item:nth-child(2) {
         .item_box {
-          top: 0;
+          top: 5px;
           left: 25%;
         }
 
@@ -403,7 +405,7 @@ export default {
           img {
             // width: 19px;
             // height: 19px;
-            margin-left: -4px;
+            // margin-left: -4px;
           }
 
           .item_name {
@@ -437,13 +439,13 @@ export default {
 
       .btn_item:nth-child(4) {
         .item_box {
-          top: 0;
+          top: 5px;
           left: 34%;
 
           img {
             // width: 19px;
             // height: 19px;
-            margin-left: -3px;
+            // margin-left: -3px;
           }
 
           .item_name {
@@ -484,7 +486,7 @@ export default {
 
       .btn_item:nth-child(5) {
         .item_box {
-          top: 0;
+          top: 5px;
           left: 5%;
 
           img {
