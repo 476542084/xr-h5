@@ -1,7 +1,7 @@
 <template>
   <div class="car-list">
     <!-- <h4 class="title">{{ activeCar.title }}</h4> -->
-    <img class="car-title" src="../images/car-title.png" alt="car-title" />
+    <img class="car-title" src="../images/pc/car-title.png" alt="car-title" />
     <div class="car-content">
       <div class="version" @click.stop="() => {
           this.openList = !this.openList;
@@ -55,19 +55,19 @@ export default {
 <style lang="less" scoped>
 .car-list {
   z-index: 9999;
-  width: 125px;
+  width: 140px;
   display: flex;
   flex-flow: column;
   color: #fffffd;
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 60px;
+  top: 60px;
   font-family: YouSheBiaoTiHei;
 
   .title {
     font-size: 34px;
     // font-weight: bold;
-    text-shadow: 2px 2px 4px #443c3c;
+    // text-shadow: 2px 2px 4px #443c3c;
   }
 
   .car-title {
@@ -81,10 +81,11 @@ export default {
     margin-left: 4px;
 
     .version {
+      cursor: pointer;
       font-size: 17px;
       // font-weight: bold;
       position: relative;
-      text-shadow: 2px 2px 4px #443c3c;
+      // text-shadow: 2px 2px 4px #443c3c;
     }
 
     .icon {
@@ -105,9 +106,9 @@ export default {
       display: flex;
       align-items: center;
 
-      svg {
-        filter: drop-shadow(1px 1px 4px rgb(0 0 0));
-      }
+      // svg {
+      //   filter: drop-shadow(1px 1px 4px rgb(0 0 0));
+      // }
     }
 
     .car-select {
@@ -135,9 +136,10 @@ export default {
     }
 
     .car-item {
+      cursor: pointer;
       height: 36px;
       line-height: 36px;
-      font-size: 17px;
+      font-size: 18px;
       // text-shadow: 2px 2px 4px #443c3c;
       color: #58595b;
       // text-align: center;

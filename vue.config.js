@@ -1,7 +1,7 @@
 "use strict";
 
-const path = require("path");
-const webpack = require("webpack");
+// const path = require("path");
+// const webpack = require("webpack");
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const { secret } = require('./nodeRequsest')
 // const suffix = secret === 'cf72fdb05f4fedf2c91fcd4127c4757e' ? 'UAT'  : secret === '0a5f089716e536f74fc68426eb31d065'  ? 'dev' : ''
@@ -26,6 +26,30 @@ module.exports = {
           javascriptEnabled: true,
         },
       },
+    },
+  },
+  pages: {
+    index: {
+      // page 的入口
+      entry: "src/main.js",
+      // 模板来源
+      template: "public/index.html",
+      // 在 dist/index.html 的输出
+      filename: "index.html",
+      // 在这个页面中包含的块，默认情况下会包含
+      // 提取出来的通用 chunk 和 vendor chunk。
+      chunks: ["chunk-vendors", "chunk-common", "index"],
+    },
+    pcIndex: {
+      // page 的入口
+      entry: "src/main-pc.js",
+      // 模板来源
+      template: "public/index.html",
+      // 在 dist/index.html 的输出
+      filename: "pcIndex.html",
+      // 在这个页面中包含的块，默认情况下会包含
+      // 提取出来的通用 chunk 和 vendor chunk。
+      chunks: ["chunk-vendors", "chunk-common", "pcIndex"],
     },
   },
 };
