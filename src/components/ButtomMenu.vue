@@ -40,7 +40,7 @@
 // import OpenApp from "./OpenApp.vue";
 import wechatMoments from "../images/wechat-moments.png";
 import wechat from "../images/wechat.png";
-import { timeLineIdMapNum } from "@/utils/map";
+// import { timeLineIdMapNum } from "@/utils/map";
 export default {
   // components: { OpenApp },
   name: "ButtomMenu",
@@ -281,13 +281,13 @@ export default {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: (200 / 24rem);
+    height: (180 / 24rem);
 
     .btns_container {
       width: 100%;
       height: 100%;
       display: flex;
-      background-image: url("../images/圆盘.png");
+      background-image: url("../images/圆盘2.png");
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: top;
