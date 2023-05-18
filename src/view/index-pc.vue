@@ -322,7 +322,13 @@ export default {
         console.log("obj", obj);
         let app = new Gacrender(obj);
         window.app = app;
-        app.selectModel("LC-00000001");
+        app.selectModel("LC-00000001", [{
+          "timeLineId": "FOTHSS-00000001", //唯一编码
+          "groupCode": "OTHER",
+          "familyCode": "SCREENSHOW",
+          "featureCode": "HSCREEN",
+          "selected": true
+        }]);
       }
     },
     url_encode(url) {
