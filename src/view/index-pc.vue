@@ -312,11 +312,11 @@ export default {
           appKey: this.params.appKey,
           boxId: this.box,
           deploy: this.params.deploy,
-          souceType: this.souceType.toUpperCase(),
-          ueMode: this.ueMode.toUpperCase(),
+          souceType: this.params.souceType.toUpperCase(),
+          ueMode: this.params.ueMode.toUpperCase(),
           screenShow:
-            this.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断
-          ueSelector: this.ueSelector.toUpperCase(),
+            this.params.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断
+          ueSelector: this.params.ueSelector.toUpperCase(),
           webAddress: process.env.VUE_APP_webAddress,
         };
         console.log("obj", obj);

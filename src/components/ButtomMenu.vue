@@ -279,9 +279,9 @@ export default {
 
   .btns {
     position: absolute;
-    bottom: 0;
+    bottom: -2rem;
     width: 100%;
-    height: (180 / 24rem);
+    height: auto;
 
     .btns_container {
       width: 100%;

@@ -28,6 +28,15 @@ module.exports = {
       },
     },
   },
+  productionSourceMap: false,
+  configureWebpack: {
+    optimization: {
+      splitChunks: {
+        minSize: 10000,
+        maxSize: 250000,
+      },
+    },
+  },
   pages: {
     index: {
       // page 的入口
