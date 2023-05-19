@@ -139,7 +139,23 @@ export default {
             if (e.data.reqTimeLineId === "GETS-00000001") {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
-                  const obj = e.data.responseData[0].data;
+                  let obj = e.data.responseData[0].data;
+                  console.log('obj----', obj)
+                  obj.push({
+                    "timeLineId": "FOTHUM-00000003", //唯一编码
+                    "groupCode": "OTHER",
+                    "familyCode": "UEMODE",
+                    "featureCode": "UEMODE_03",
+                    "selected": true
+                  })
+                  obj.push({
+                    "timeLineId": "FOTHSS-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "familyCode": "SCREENSHOW",
+                    "featureCode": "HSCREEN",
+                    "selected": true
+                  })
+                  console.log('add extend obj after----', obj)
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -322,13 +338,22 @@ export default {
         console.log("obj", obj);
         let app = new Gacrender(obj);
         window.app = app;
-        app.selectModel("LC-00000001", [{
-          "timeLineId": "FOTHSS-00000001", //唯一编码
-          "groupCode": "OTHER",
-          "familyCode": "SCREENSHOW",
-          "featureCode": "HSCREEN",
-          "selected": true
-        }]);
+        app.selectModel("LC-00000001", [
+          {
+            "timeLineId": "FOTHUM-00000003", //唯一编码
+            "groupCode": "OTHER",
+            "familyCode": "UEMODE",
+            "featureCode": "UEMODE_03",
+            "selected": true
+          },
+          {
+            "timeLineId": "FOTHSS-00000001", //唯一编码
+            "groupCode": "OTHER",
+            "familyCode": "SCREENSHOW",
+            "featureCode": "HSCREEN",
+            "selected": true
+          }
+        ]);
       }
     },
     url_encode(url) {

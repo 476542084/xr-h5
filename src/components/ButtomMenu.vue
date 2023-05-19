@@ -279,7 +279,7 @@ export default {
 
   .btns {
     position: absolute;
-    bottom: -2rem;
+    bottom: -2.4rem;
     width: 100%;
     height: auto;
 
