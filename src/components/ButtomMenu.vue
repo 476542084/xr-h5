@@ -3,7 +3,7 @@
     <div class="btns">
       <div v-if="!isMiniprogram" class="btns_container">
         <div v-for="(btn, idx) in btnsConfig" :key="btn.name" class="btn_item"
-          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="handleClickBtn(btn, idx)">
+          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="(e) => handleClickBtn(btn, idx, e)">
           <div class="item_line left"></div>
           <div class="item_box">
             <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
@@ -125,7 +125,11 @@ export default {
         this.isShowFunctionArea = !this.isShowFunctionArea;
       }
     },
-    handleClickBtn(item, index) {
+    handleClickBtn(item, index, e) {
+      console.log('e', e)
+      window.sensors.quick('trackHeatMap', e.target, {
+        btn_name_share: 'btn_name_share',
+      });
       // return;
       this.currBtnName = item.name;
       if (item.name === "分享") {
@@ -182,7 +186,7 @@ export default {
         //朋友圈分享app方法
         window.tool.timeLineShare(item);
       }
-      
+
     },
   },
 };

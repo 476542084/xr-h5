@@ -4,34 +4,68 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
+      <img class="playIcon" v-if="showPlay" @touchstart.stop="handlerPlay()" src="../images/play.png" alt="play">
+
+      <!-- 2d切3d不允许提示 -->
+      <div v-if="showEnableToggle" class="toggle-tip">
+        <img class="toggle-icon" src="../images/icon/info.png" alt="">
+        <span>当前观看人数过多，请稍候！</span>
+      </div>
+
+      <!-- 固定网络提示 -->
+      <div v-if="enter && !show2d" class="network-tip">
+        <img class="network-icon" src="../images/icon/info.png" alt="">
+        <img class="network-icon-text" src="../images/icon/text.png" alt="">
+      </div>
+
+
+      <!-- 当展示图标以及2d才展示2d序列图 -->
+      <D2 v-if="show2d" />
+
       <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="193" :activityId="240" />
 
       <!-- car select list -->
-      <CarSelect v-if="showCarSelect" :activeCar="activeCar" :onChange="handerCarChange" />
+      <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
+
+      <!-- toggle -->
+      <!-- 
+        1、进去 enter：true
+        2、动态控制show2d3dIcon，在7003时候，自动切到2d也展示
+        
+     -->
+      <img v-if="enter || show2d" :class="(!show2d && enter) ? `toggleIcon` : `backIcon`"
+        @touchstart.stop="handlerToggle()" :src="show2d ? logo3D : logo2D" alt="toggleIcon" />
 
       <!-- music play -->
-      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon"
-        @click.stop="toggleMusicPlay()" src="../images/icon/music.png" alt="music" />
+      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon && !show2d"
+        @touchstart.stop="toggleMusicPlay()" src="../images/icon/music.png" alt="music" />
 
       <audio id="bg-audio" :src="mp3Url">…</audio>
 
       <!-- back -->
-      <img class="backIcon" v-if="showBackIcon" @click.stop="handlerBack()" src="../images/icon/back.png" alt="music" />
+      <img class="backIcon" v-if="showBackIcon && !show2d" @touchstart.stop="handlerBack()" src="../images/icon/back.png"
+        alt="music" />
+
+
     </div>
   </div>
 </template>
 <script>
 import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
+import D2 from "@/components/2D.vue";
 import Loading from "@/components/Loading.vue";
-import Gacrender from "../utils/Gacrender.js";
+import Gacrender from "../utils/Gacrender1.0.8.js";
 import qs from "qs";
 import { timeLineIdMapNum, numMapObj } from "@/utils/map";
 export default {
-  components: { ButtomMenu, Loading, CarSelect },
+  components: { ButtomMenu, Loading, CarSelect, D2 },
   name: "ViEw",
   data() {
     return {
+      logo2D: require('../images/2d/2d.png'),
+      logo3D: require('../images/2d/3d.png'),
+      show2d: false,
       mp3Url: `${process.env.VUE_APP_webAddress}/material/bg.mp3`,
       activeCar: {
         title: "传祺E9",
@@ -46,8 +80,14 @@ export default {
       audio: HTMLAudioElement,
       isPlaying: false,
       showCarSelect: false,
+      show2d3dIcon: false,//展示2d/3d切换图标
       showBackIcon: false,
       showMusicIcon: false,
+      isEnableToggle: false,//是否允许2d  切 3d ，由enter以及微信点击（7001判断）
+      showEnableToggle: false,
+
+      showEnableToggleTimer: undefined,
+      showPlay: false,
       obj: null,
 
       code: "--",
@@ -76,7 +116,8 @@ export default {
     };
   },
   mounted() {
-    window.handlerEnter = this.handlerEnter;
+    // window.show2d3dIcon = this.show2d3dIcon
+    // window.handlerEnter = this.handlerEnter;
     this.audio = document.getElementById("bg-audio");
     if (this.audio) {
       this.audio.onplaying = () => (this.isPlaying = true);
@@ -123,8 +164,20 @@ export default {
           } else if (e.data.code == "7002") {
             console.log("e.data.code", e.data.code);
             //初始化画面
-            window.handlerEnter();
-          } else if (e.data.code == "200") {
+            that.handlerEnter();
+          }
+          else if (e.data.code == "7001") {
+            // 微信点击
+            this.isEnableToggle = true
+            that.showPlay = true
+          }
+          else if (e.data.code == "7003") {
+            // 返回code为7003和排队人数时，为排队状态，可选择排队人数或者跳转2D操作界面
+            that.handlerInitialization()
+            that.show2d = true
+            that.show2d3dIcon = true
+          }
+          else if (e.data.code == "200") {
             if (e.data.reqTimeLineId === "GETS-00000008") {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
@@ -159,7 +212,14 @@ export default {
                     })
                   }
 
-                  const obj = e.data.responseData[0].data;
+                  let obj = e.data.responseData[0].data;
+                  obj.push({
+                    "timeLineId": "FOTHSS-00000001", //唯一编码
+                    "groupCode": "OTHER",
+                    "familyCode": "SCREENSHOW",
+                    "featureCode": "HSCREEN",
+                    "selected": true
+                  })
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -180,11 +240,13 @@ export default {
                   that.showCarSelect = false
                   that.showMusicIcon = false
                   that.showBackIcon = false
+                  that.show2d3dIcon = false
                 } else {
                   that.enter = true
                   that.showCarSelect = true
                   that.showMusicIcon = true
                   that.showBackIcon = true
+                  that.show2d3dIcon = true
                 }
               } catch (error) {
                 console.error(error);
@@ -208,12 +270,23 @@ export default {
     );
   },
   methods: {
+    handlerPlay() {
+      try {
+        this.showPlay = false
+        window.app.manualPlay()
+      } catch (error) {
+        console.error(error)
+      }
+
+    },
     handlerEnter() {
       this.showLoading = false;
       this.enter = true;
+
       this.showCarSelect = true;
       this.showBackIcon = true;
       this.showMusicIcon = true;
+      this.show2d3dIcon = true
     },
 
     handlerInitialization() {
@@ -222,6 +295,7 @@ export default {
       this.showCarSelect = false;
       this.showBackIcon = false;
       this.showMusicIcon = false;
+      this.show2d3dIcon = false;
     },
     handerCarChange(car) {
       if (car.timeLineId !== this.activeCar.timeLineId) {
@@ -247,6 +321,21 @@ export default {
       window.app.getStatus("GETS-00000008");
       // window.app.ueBack()
     },
+
+    handlerToggle() {
+      //2d 切换 3d时候判断,没有enter或者没有微信点击（isEnableToggle）
+      if (this.show2d && !this.enter && !this.isEnableToggle) {
+        //提示不能切3d
+        this.showEnableToggle = true
+        let that = this
+        this.showEnableToggleTimer = window.setTimeout(() => {
+          that.showEnableToggle = false
+        }, 2000)
+        return
+      }
+      this.show2d = !this.show2d
+    },
+
     checkset(el, methodsName) {
       window.app[methodsName](el);
     },
@@ -418,14 +507,72 @@ export default {
 .screen-c {
   width: 100%;
   height: 100%;
-  /* background-color: rgb(3, 3, 3); */
+  background-color: rgb(3, 3, 3);
   position: relative;
+}
+
+.toggle-tip {
+  width: 62%;
+  position: fixed;
+  transform: translate(-50%, 0);
+  left: 50%;
+  top: 20%;
+  z-index: 99999999;
+  background-color: #a0c0d3;
+  padding: 4px 6px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 8%;
+  }
+
+  span {
+    margin-left: 4px;
+    font-family: YouSheBiaoTiHei;
+  }
+}
+
+
+.network-tip {
+  width: 62%;
+  position: fixed;
+  right: -33px;
+  top: 2px;
+  z-index: 99999999;
+  // background-color: #a0c0d3;
+  padding: 4px 6px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .network-icon {
+    width: 6%;
+  }
+
+  .network-icon-text {
+    width: 48%;
+    margin-left: 5px;
+  }
+
+}
+
+.playIcon {
+  width: 50%;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 18%;
+  z-index: 9999;
 }
 
 .musicIcon {
   z-index: 9999;
   position: absolute;
-  right: 90px;
+  right: 80px;
   top: 20px;
   width: 13.5%;
 }
@@ -448,6 +595,14 @@ export default {
   100% {
     rotate: 360deg;
   }
+}
+
+.toggleIcon {
+  z-index: 9999;
+  position: absolute;
+  right: 140px;
+  top: 20px;
+  width: 13.5%;
 }
 
 .backIcon {
@@ -500,6 +655,7 @@ export default {
 }
 
 .mistake {
+  position: fixed;
   z-index: 99999999;
   width: 100vw;
   height: 100vh;

@@ -20,7 +20,7 @@
 <script>
 import CarSelect from "@/components/CarSelectPc.vue";
 import Loading from "@/components/LoadingPc.vue";
-import Gacrender from "../utils/Gacrender.js";
+import Gacrender from "../utils/Gacrender1.0.8.js";
 import qs from "qs";
 export default {
   components: { Loading, CarSelect },

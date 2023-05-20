@@ -53,7 +53,7 @@ module.exports = {
       // page 的入口
       entry: "src/main-pc.js",
       // 模板来源
-      template: "public/index.html",
+      template: "public/indexPc.html",
       // 在 dist/index.html 的输出
       filename: "pcIndex.html",
       // 在这个页面中包含的块，默认情况下会包含
