@@ -1,5 +1,5 @@
 <template>
-    <div class="cloudimage-360" id="gurkha-suv" data-index-zero-base="4" data-folder="./360/"
+    <div class="cloudimage-360" id="gurkha-suv" data-index-zero-base="4" data-folder="./360_2/"
         data-filename-x="car_{index}.jpg" data-amount-x="36"></div>
 </template>
 <script>

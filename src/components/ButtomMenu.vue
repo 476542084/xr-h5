@@ -1,12 +1,27 @@
 <template>
-  <div class="buttom_menu" @touchstart.stop @touchmove.stop.prevent @touchend.stop @mousewheel.stop>
+  <div
+    class="buttom_menu"
+    @touchstart.stop
+    @touchmove.stop.prevent
+    @touchend.stop
+    @mousewheel.stop
+  >
     <div class="btns">
       <div v-if="!isMiniprogram" class="btns_container">
-        <div v-for="(btn, idx) in btnsConfig" :key="btn.name" class="btn_item"
-          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="(e) => handleClickBtn(btn, idx, e)">
+        <div
+          v-for="(btn, idx) in btnsConfig"
+          :key="btn.name"
+          class="btn_item"
+          :class="[{ active: btn.name == currBtnName }, btn.class]"
+          @click.stop="(e) => handleClickBtn(btn, idx, e)"
+        >
           <div class="item_line left"></div>
           <div class="item_box">
-            <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
+            <img
+              v-show="btn.name == currBtnName"
+              :src="btn.activeIcon"
+              alt=""
+            />
             <img v-show="btn.name != currBtnName" :src="btn.icon" alt="" />
             <div class="item_name">{{ btn.name }}</div>
           </div>
@@ -18,12 +33,23 @@
     </div>
     <!-- <open-app v-if="!isMiniprogram"></open-app> -->
     <div class="share-sheet">
-      <van-share-sheet :show="showShare" title="立即分享给好友" :options="options" @select="onSelect" @cancel="() => {
-          showShare = false;
-        }
-        " />
+      <van-share-sheet
+        :show="showShare"
+        title="立即分享给好友"
+        :options="options"
+        @select="onSelect"
+        @cancel="
+          () => {
+            showShare = false;
+          }
+        "
+      />
     </div>
-    <div class="app-download-miniprogram" v-if="isMiniprogram && showDownloadCode" @click="setDownloadFalse">
+    <div
+      class="app-download-miniprogram"
+      v-if="isMiniprogram && showDownloadCode"
+      @click="setDownloadFalse"
+    >
       <div @click.stop class="code">
         <img src="../images/applogo.png" alt="app下载" />
       </div>
@@ -104,7 +130,7 @@ export default {
     },
   },
   mounted() {
-    this.sensorsInit()
+    this.sensorsInit();
     console.info("goodId:", this.goodId);
     console.info("activityId:", this.activityId);
     // EventListener.on("changeToMotion", () => {
@@ -112,9 +138,7 @@ export default {
     // });
   },
   methods: {
-    sensorsInit() {
-
-    },
+    sensorsInit() {},
     setDownloadFalse() {
       this.showDownloadCode = false;
     },
@@ -126,16 +150,25 @@ export default {
       }
     },
     handleClickBtn(item, index, e) {
-      console.log('e', e)
-      window.sensors.quick('trackHeatMap', e.target, {
-        btn_name_share: 'btn_name_share',
-      });
+      console.log("e", e);
+      try {
+        window.sensors.quick("trackHeatMap", e.target, {
+          btn_name_share: "btn_name_share",
+        });
+      } catch (error) {
+        console.error("sensors quick error", error);
+      }
       // return;
       this.currBtnName = item.name;
       if (item.name === "分享") {
         console.log("item", item);
+        try {
+          window.app.getStatus("GETS-00000001");
+        } catch (error) {
+          console.error("getStatus", error);
+        }
         // getStatusByTimeLineId
-        window.app.getStatus("GETS-00000001");
+        // window.app.getStatus("GETS-00000001");
         this.showShare = true;
         //TODO
       } else {
@@ -155,19 +188,19 @@ export default {
       this.showShare = false;
       // let currAccList = this.mainScene.currAccList.join(",");
       let url = this.shareUrl || window.location.href.split("#")[0];
-      console.log('share before url', url)
+      console.log("share before url", url);
       // console.log(option);
       if (window.optionMap) {
-        if (new URLSearchParams(window.location.search).get('optionMap')) {
+        if (new URLSearchParams(window.location.search).get("optionMap")) {
           //url含有分享的optionMap，需要重置且设置新的有效值
-          url = url.split('&optionMap=')[0]
-          url = `${url}&optionMap="${window.optionMap}"`
+          url = url.split("&optionMap=")[0];
+          url = `${url}&optionMap="${window.optionMap}"`;
         } else {
-          url = `${url}&optionMap="${window.optionMap}"`
+          url = `${url}&optionMap="${window.optionMap}"`;
         }
       }
 
-      console.log('share after url', url)
+      console.log("share after url", url);
       const item = {
         url,
         name: "传祺E9",
@@ -175,7 +208,7 @@ export default {
         content: "传祺E9",
         shareCallback: "shareCallback",
       };
-      console.log('share item', item)
+      console.log("share item", item);
 
       if (option.name === "微信") {
         //TODO
@@ -186,7 +219,6 @@ export default {
         //朋友圈分享app方法
         window.tool.timeLineShare(item);
       }
-
     },
   },
 };
@@ -302,7 +334,23 @@ export default {
         // flex-direction: column;
         // align-items: center;
         width: 20%;
-        height: (200 / 24rem);
+        // height: (200 / 24rem);
+        height: (208 / 24rem);
+        @media only screen and (max-width: 414px) {
+          height: (211 / 24rem);
+        }
+        @media only screen and (max-width: 393px) {
+          height: (206 / 24rem);
+        }
+        @media only screen and (max-width: 390px) {
+          height: (200 / 24rem);
+        }
+        @media only screen and (max-width: 375px) {
+          height: (200 / 24rem);
+        }
+        @media only screen and (max-width: 360px) {
+          height: (190 / 24rem);
+        }
 
         .item_box {
           position: absolute;
@@ -356,10 +404,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -383,10 +433,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .left {
@@ -428,10 +480,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -474,10 +528,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -507,10 +563,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -536,7 +594,6 @@ export default {
 
 @media screen and (max-width: 320px) {
   .btns_container {
-
     .btn_item:nth-child(2),
     .btn_item:nth-child(3),
     .btn_item:nth-child(4) {

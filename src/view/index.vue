@@ -4,28 +4,42 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
-      <img class="playIcon" v-if="showPlay" @touchstart.stop="handlerPlay()" src="../images/play.png" alt="play">
+      <img
+        class="playIcon"
+        v-if="showPlay"
+        @touchstart.stop="handlerPlay()"
+        src="../images/play.png"
+        alt="play"
+      />
 
       <!-- 2d切3d不允许提示 -->
       <div v-if="showEnableToggle" class="toggle-tip">
-        <img class="toggle-icon" src="../images/icon/info.png" alt="">
+        <img class="toggle-icon" src="../images/icon/info.png" alt="" />
         <span>当前观看人数过多，请稍候！</span>
       </div>
 
       <!-- 固定网络提示 -->
       <div v-if="enter && !show2d" class="network-tip">
-        <img class="network-icon" src="../images/icon/info.png" alt="">
-        <img class="network-icon-text" src="../images/icon/text.png" alt="">
+        <img class="network-icon" src="../images/icon/info.png" alt="" />
+        <img class="network-icon-text" src="../images/icon/text.png" alt="" />
       </div>
-
 
       <!-- 当展示图标以及2d才展示2d序列图 -->
       <D2 v-if="show2d" />
 
-      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="193" :activityId="240" />
+      <ButtomMenu
+        v-if="enter"
+        :isMiniprogram="isMiniprogram"
+        :goodId="193"
+        :activityId="240"
+      />
 
       <!-- car select list -->
-      <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
+      <CarSelect
+        v-if="showCarSelect && !show2d"
+        :activeCar="activeCar"
+        :onChange="handerCarChange"
+      />
 
       <!-- toggle -->
       <!-- 
@@ -33,20 +47,33 @@
         2、动态控制show2d3dIcon，在7003时候，自动切到2d也展示
         
      -->
-      <img v-if="enter || show2d" :class="(!show2d && enter) ? `toggleIcon` : `backIcon`"
-        @touchstart.stop="handlerToggle()" :src="show2d ? logo3D : logo2D" alt="toggleIcon" />
+      <img
+        v-if="enter || show2d"
+        :class="!show2d && enter ? `toggleIcon` : `backIcon`"
+        @touchstart.stop="handlerToggle()"
+        :src="show2d ? logo3D : logo2D"
+        alt="toggleIcon"
+      />
 
       <!-- music play -->
-      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon && !show2d"
-        @touchstart.stop="toggleMusicPlay()" src="../images/icon/music.png" alt="music" />
+      <img
+        :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'"
+        v-if="showMusicIcon && !show2d"
+        @touchstart.stop="toggleMusicPlay()"
+        src="../images/icon/music.png"
+        alt="music"
+      />
 
       <audio id="bg-audio" :src="mp3Url">…</audio>
 
       <!-- back -->
-      <img class="backIcon" v-if="showBackIcon && !show2d" @touchstart.stop="handlerBack()" src="../images/icon/back.png"
-        alt="music" />
-
-
+      <img
+        class="backIcon"
+        v-if="showBackIcon && !show2d"
+        @touchstart.stop="handlerBack()"
+        src="../images/icon/back.png"
+        alt="music"
+      />
     </div>
   </div>
 </template>
@@ -63,8 +90,8 @@ export default {
   name: "ViEw",
   data() {
     return {
-      logo2D: require('../images/2d/2d.png'),
-      logo3D: require('../images/2d/3d.png'),
+      logo2D: require("../images/2d/2d.png"),
+      logo3D: require("../images/2d/3d.png"),
       show2d: false,
       mp3Url: `${process.env.VUE_APP_webAddress}/material/bg.mp3`,
       activeCar: {
@@ -80,10 +107,10 @@ export default {
       audio: HTMLAudioElement,
       isPlaying: false,
       showCarSelect: false,
-      show2d3dIcon: false,//展示2d/3d切换图标
+      show2d3dIcon: false, //展示2d/3d切换图标
       showBackIcon: false,
       showMusicIcon: false,
-      isEnableToggle: false,//是否允许2d  切 3d ，由enter以及微信点击（7001判断）
+      isEnableToggle: false, //是否允许2d  切 3d ，由enter以及微信点击（7001判断）
       showEnableToggle: false,
 
       showEnableToggleTimer: undefined,
@@ -127,7 +154,7 @@ export default {
       document.title = "广汽传祺 E9";
     }, 100);
     this.getUrlParam();
-    let that = this
+    let that = this;
     window.addEventListener(
       "message",
       function (e) {
@@ -165,19 +192,33 @@ export default {
             console.log("e.data.code", e.data.code);
             //初始化画面
             that.handlerEnter();
-          }
-          else if (e.data.code == "7001") {
-            // 微信点击
-            this.isEnableToggle = true
-            that.showPlay = true
-          }
-          else if (e.data.code == "7003") {
+          } else if (e.data.code == "7001") {
+            // 通过了微信点击
+            let manualPlayTimer = null;
+            this.isEnableToggle = true;
+            if (
+              navigator.userAgent.includes("miniProgram") ||
+              navigator.userAgent.includes("MicroMessenger")
+            ) {
+              //微信环境才展示点击（主动）
+              that.showPlay = true;
+            } else {
+              //自动点击
+              manualPlayTimer = setInterval(() => {
+                console.info("not manualPlay");
+                if (window.manualPlay) {
+                  console.info("handlerPlay");
+                  that.handlerPlay();
+                  clearInterval(manualPlayTimer);
+                }
+              }, 100);
+            }
+          } else if (e.data.code == "7003") {
             // 返回code为7003和排队人数时，为排队状态，可选择排队人数或者跳转2D操作界面
-            that.handlerInitialization()
-            that.show2d = true
-            that.show2d3dIcon = true
-          }
-          else if (e.data.code == "200") {
+            that.handlerInitialization();
+            that.show2d = true;
+            that.show2d3dIcon = true;
+          } else if (e.data.code == "200") {
             if (e.data.reqTimeLineId === "GETS-00000008") {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
@@ -198,28 +239,30 @@ export default {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
                   // console.log("getStatus:", e.data.responseData[0].data);
-                  const carStatus = e.data.responseData[0].data
-                  window.carStatus = carStatus
+                  const carStatus = e.data.responseData[0].data;
+                  window.carStatus = carStatus;
                   //window.carStatus
                   if (Array.isArray(carStatus) && carStatus.length) {
-                    window.optionMap = ''
+                    window.optionMap = "";
                     carStatus.forEach((status) => {
-                      const num = timeLineIdMapNum.get(status.timeLineId)
+                      const num = timeLineIdMapNum.get(status.timeLineId);
                       // console.log('num', num, status.timeLineId)
                       if (num) {
-                        window.optionMap = !window.optionMap ? num : `${window.optionMap},${num}`
+                        window.optionMap = !window.optionMap
+                          ? num
+                          : `${window.optionMap},${num}`;
                       }
-                    })
+                    });
                   }
 
                   let obj = e.data.responseData[0].data;
                   obj.push({
-                    "timeLineId": "FOTHSS-00000001", //唯一编码
-                    "groupCode": "OTHER",
-                    "familyCode": "SCREENSHOW",
-                    "featureCode": "HSCREEN",
-                    "selected": true
-                  })
+                    timeLineId: "FOTHSS-00000001", //唯一编码
+                    groupCode: "OTHER",
+                    familyCode: "SCREENSHOW",
+                    featureCode: "HSCREEN",
+                    selected: true,
+                  });
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -234,19 +277,22 @@ export default {
 
             if (e.data.method === "getUELocation") {
               try {
-                if (e.data.location === 'AT3DPLAY' || e.data.location === 'ATVIDEOPLAY') {
+                if (
+                  e.data.location === "AT3DPLAY" ||
+                  e.data.location === "ATVIDEOPLAY"
+                ) {
                   //隐藏导航栏
-                  that.enter = false
-                  that.showCarSelect = false
-                  that.showMusicIcon = false
-                  that.showBackIcon = false
-                  that.show2d3dIcon = false
+                  that.enter = false;
+                  that.showCarSelect = false;
+                  that.showMusicIcon = false;
+                  that.showBackIcon = false;
+                  that.show2d3dIcon = false;
                 } else {
-                  that.enter = true
-                  that.showCarSelect = true
-                  that.showMusicIcon = true
-                  that.showBackIcon = true
-                  that.show2d3dIcon = true
+                  that.enter = true;
+                  that.showCarSelect = true;
+                  that.showMusicIcon = true;
+                  that.showBackIcon = true;
+                  that.show2d3dIcon = true;
                 }
               } catch (error) {
                 console.error(error);
@@ -272,21 +318,21 @@ export default {
   methods: {
     handlerPlay() {
       try {
-        this.showPlay = false
-        window.app.manualPlay()
+        this.showPlay = false;
+        window.app.manualPlay();
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-
     },
     handlerEnter() {
       this.showLoading = false;
       this.enter = true;
 
+      this.showPlay = false; //强制去掉微信点击
       this.showCarSelect = true;
       this.showBackIcon = true;
       this.showMusicIcon = true;
-      this.show2d3dIcon = true
+      this.show2d3dIcon = true;
     },
 
     handlerInitialization() {
@@ -326,14 +372,14 @@ export default {
       //2d 切换 3d时候判断,没有enter或者没有微信点击（isEnableToggle）
       if (this.show2d && !this.enter && !this.isEnableToggle) {
         //提示不能切3d
-        this.showEnableToggle = true
-        let that = this
+        this.showEnableToggle = true;
+        let that = this;
         this.showEnableToggleTimer = window.setTimeout(() => {
-          that.showEnableToggle = false
-        }, 2000)
-        return
+          that.showEnableToggle = false;
+        }, 2000);
+        return;
       }
-      this.show2d = !this.show2d
+      this.show2d = !this.show2d;
     },
 
     checkset(el, methodsName) {
@@ -424,7 +470,9 @@ export default {
           souceType: this.params.souceType.toUpperCase(),
           ueMode: this.params.ueMode.toUpperCase(),
           screenShow:
-            this.params.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断
+            this.params.ueMode.toUpperCase() === "UEMODE_03"
+              ? "HSCREEN"
+              : "VSCREEN", //根据ueMode判断
           ueSelector: this.params.ueSelector.toUpperCase(),
           webAddress: process.env.VUE_APP_webAddress,
         };
@@ -444,32 +492,35 @@ export default {
         //   timeLineId: "FINTC-00000002",
         //   selected: true
         // }]
-        let objArray = []
+        let objArray = [];
         if (this.params.optionMap) {
           // console.log('this.params.optionMap', this.params.optionMap)
-          objArray = this.params.optionMap.split(',').map((option) => {
+          objArray = this.params.optionMap.split(",").map((option) => {
             // console.log('option', option, +option, numMapObj.get(+option))
-            return numMapObj.get(+option)
-          })
-          app.selectModel("LC-00000001",
+            return numMapObj.get(+option);
+          });
+          app.selectModel(
+            "LC-00000001",
             // objArray,
-            objArray.concat(
-              {
-                "timeLineId": "FOTHSS-00000001", //唯一编码
-                "groupCode": "OTHER",
-                "familyCode": "SCREENSHOW",
-                "featureCode": "HSCREEN",
-                "selected": true
-              })
+            objArray.concat({
+              timeLineId: "FOTHSS-00000001", //唯一编码
+              groupCode: "OTHER",
+              familyCode: "SCREENSHOW",
+              featureCode: "HSCREEN",
+              selected: true,
+            })
           );
 
-          console.info('selectModel:objArray-------', objArray.concat({
-            "timeLineId": "FOTHSS-00000001", //唯一编码
-            "groupCode": "OTHER",
-            "familyCode": "SCREENSHOW",
-            "featureCode": "HSCREEN",
-            "selected": true
-          }))
+          console.info(
+            "selectModel:objArray-------",
+            objArray.concat({
+              timeLineId: "FOTHSS-00000001", //唯一编码
+              groupCode: "OTHER",
+              familyCode: "SCREENSHOW",
+              featureCode: "HSCREEN",
+              selected: true,
+            })
+          );
         } else {
           app.selectModel("LC-00000001");
         }
@@ -535,7 +586,6 @@ export default {
   }
 }
 
-
 .network-tip {
   width: 62%;
   position: fixed;
@@ -557,7 +607,6 @@ export default {
     width: 48%;
     margin-left: 5px;
   }
-
 }
 
 .playIcon {
