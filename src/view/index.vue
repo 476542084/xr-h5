@@ -30,7 +30,7 @@
       <ButtomMenu
         v-if="enter"
         :isMiniprogram="isMiniprogram"
-        :goodId="193"
+        :goodId="213"
         :activityId="240"
       />
 
@@ -226,6 +226,10 @@ export default {
                     "curLevel:",
                     e.data.responseData[0].data[0].curLevel
                   );
+                  if(e.data.responseData[0].data[0].curLevel == 1){
+                    window.location.href = 'https://xr.gacmotor.com/trumpchi'
+                    return
+                  }
                   if (e.data.responseData[0].data[0].curLevel > 1) {
                     window.app.ueBack();
                   }
