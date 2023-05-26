@@ -1,10 +1,13 @@
+//groupCode   1级
+//familyCode  2级
+//featureCode 3级
 export const numMapObj = new Map([
   [
     1, //车毂
     {
-      familyCode: "WHEEL_0001",
+      familyCode: "WHEEL",
       featureCode: "WHEEL_0001",
-      groupCode: "Ext",
+      groupCode: "EXT",
       timeLineId: "FEXTW-00000001",
       selected: true,
     },
@@ -14,7 +17,7 @@ export const numMapObj = new Map([
     {
       familyCode: "INTCOLOR",
       featureCode: "INTCOLOR_0001",
-      groupCode: "Int",
+      groupCode: "INT",
       timeLineId: "FINTC-00000001",
       selected: true,
     },
@@ -24,7 +27,7 @@ export const numMapObj = new Map([
     {
       familyCode: "INTCOLOR",
       featureCode: "INTCOLOR_0002",
-      groupCode: "Int",
+      groupCode: "INT",
       timeLineId: "FINTC-00000002",
       selected: true,
     },

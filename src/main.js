@@ -21,7 +21,6 @@ try {
       use_client_time: true,
       show_log: true,
       send_type: "beacon",
-      source_type: "",
       heatmap: {
         track_attr: [],
         clickmap: "default",

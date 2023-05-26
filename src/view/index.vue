@@ -4,13 +4,7 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
-      <img
-        class="playIcon"
-        v-if="showPlay"
-        @touchstart.stop="handlerPlay()"
-        src="../images/play.png"
-        alt="play"
-      />
+      <img class="playIcon" v-if="showPlay" @touchstart.stop="handlerPlay()" src="../images/play.png" alt="play" />
 
       <!-- 2d切3d不允许提示 -->
       <div v-if="showEnableToggle" class="toggle-tip">
@@ -27,19 +21,10 @@
       <!-- 当展示图标以及2d才展示2d序列图 -->
       <D2 v-if="show2d" />
 
-      <ButtomMenu
-        v-if="enter"
-        :isMiniprogram="isMiniprogram"
-        :goodId="213"
-        :activityId="240"
-      />
+      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="213" :activityId="240" />
 
       <!-- car select list -->
-      <CarSelect
-        v-if="showCarSelect && !show2d"
-        :activeCar="activeCar"
-        :onChange="handerCarChange"
-      />
+      <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
 
       <!-- toggle -->
       <!-- 
@@ -47,33 +32,18 @@
         2、动态控制show2d3dIcon，在7003时候，自动切到2d也展示
         
      -->
-      <img
-        v-if="enter || show2d"
-        :class="!show2d && enter ? `toggleIcon` : `backIcon`"
-        @touchstart.stop="handlerToggle()"
-        :src="show2d ? logo3D : logo2D"
-        alt="toggleIcon"
-      />
+      <img v-if="enter || show2d" :class="!show2d && enter ? `toggleIcon` : `backIcon`" @touchstart.stop="handlerToggle()"
+        :src="show2d ? logo3D : logo2D" alt="toggleIcon" />
 
       <!-- music play -->
-      <img
-        :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'"
-        v-if="showMusicIcon && !show2d"
-        @touchstart.stop="toggleMusicPlay()"
-        src="../images/icon/music.png"
-        alt="music"
-      />
+      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon && !show2d"
+        @touchstart.stop="(e) => toggleMusicPlay(e)" src="../images/icon/music.png" alt="music" />
 
       <audio id="bg-audio" :src="mp3Url">…</audio>
 
       <!-- back -->
-      <img
-        class="backIcon"
-        v-if="showBackIcon && !show2d"
-        @touchstart.stop="handlerBack()"
-        src="../images/icon/back.png"
-        alt="music"
-      />
+      <img class="backIcon" v-if="showBackIcon && !show2d" @touchstart.stop="(e) => handlerBack(e)"
+        src="../images/icon/back.png" alt="music" />
     </div>
   </div>
 </template>
@@ -90,6 +60,7 @@ export default {
   name: "ViEw",
   data() {
     return {
+      manualPlayTimer: null,
       logo2D: require("../images/2d/2d.png"),
       logo3D: require("../images/2d/3d.png"),
       show2d: false,
@@ -194,7 +165,6 @@ export default {
             that.handlerEnter();
           } else if (e.data.code == "7001") {
             // 通过了微信点击
-            let manualPlayTimer = null;
             this.isEnableToggle = true;
             if (
               navigator.userAgent.includes("miniProgram") ||
@@ -204,12 +174,12 @@ export default {
               that.showPlay = true;
             } else {
               //自动点击
-              manualPlayTimer = setInterval(() => {
+              that.manualPlayTimer = setInterval(() => {
                 console.info("not manualPlay");
                 if (window.manualPlay) {
                   console.info("handlerPlay");
                   that.handlerPlay();
-                  clearInterval(manualPlayTimer);
+                  clearInterval(that.manualPlayTimer);
                 }
               }, 100);
             }
@@ -226,7 +196,7 @@ export default {
                     "curLevel:",
                     e.data.responseData[0].data[0].curLevel
                   );
-                  if(e.data.responseData[0].data[0].curLevel == 1){
+                  if (e.data.responseData[0].data[0].curLevel == 1) {
                     window.location.href = 'https://xr.gacmotor.com/trumpchi'
                     return
                   }
@@ -333,6 +303,8 @@ export default {
       this.enter = true;
 
       this.showPlay = false; //强制去掉微信点击
+      clearInterval(this.manualPlayTimer);
+
       this.showCarSelect = true;
       this.showBackIcon = true;
       this.showMusicIcon = true;
@@ -361,14 +333,28 @@ export default {
         }
       }
     },
-    toggleMusicPlay() {
+    toggleMusicPlay(e) {
       this.isPlaying ? this.audio.pause() : this.audio.play();
+      try {
+        window.sensors.quick("trackHeatMap", e.target, {
+          vr_carType_details_btnClick: 'btn_name_music',
+        });
+      } catch (_) {
+        console.error('sensors quick error', _)
+      }
     },
     getStatusByTimeLineId() {
       window.app.getStatus("GETS-00000001");
     },
-    handlerBack() {
+    handlerBack(e) {
       window.app.getStatus("GETS-00000008");
+      try {
+        window.sensors.quick("trackHeatMap", e.target, {
+          vr_carType_details_btnClick: 'btn_name_backtrack',
+        });
+      } catch (_) {
+        console.error('sensors quick error', _)
+      }
       // window.app.ueBack()
     },
 
