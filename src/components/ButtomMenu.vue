@@ -133,6 +133,9 @@ export default {
       try {
         window.sensors.quick("trackHeatMap", e.target, {
           vr_carType_details_btnClick: item.sa,
+          car_series: 'mpv',
+          car_type: 'E9',
+          cartype_version: window.activeCar.version
         });
       } catch (error) {
         console.error("sensors quick error", error);

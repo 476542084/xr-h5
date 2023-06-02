@@ -114,6 +114,24 @@ export default {
     };
   },
   mounted() {
+    window.activeCar = this.activeCar
+
+    try {
+      const time = (+new Date() - window.startTime) / 1000
+      console.log('time----', time)
+      window.sensors.quick("trackHeatMap", document.body, {
+        e_code_team: '瑞云',
+        e_code_version: '',
+        event_duration: time,
+        car_series: "mpv",
+        car_type: "E9",
+        cartype_version: window.activeCar.version || "宗师",
+      });
+    } catch (_) {
+      console.error(_)
+    }
+
+
     // window.show2d3dIcon = this.show2d3dIcon
     // window.handlerEnter = this.handlerEnter;
     this.audio = document.getElementById("bg-audio");
@@ -338,6 +356,9 @@ export default {
       try {
         window.sensors.quick("trackHeatMap", e.target, {
           vr_carType_details_btnClick: 'btn_name_music',
+          car_series: 'mpv',
+          car_type: 'E9',
+          cartype_version: window.activeCar.version
         });
       } catch (_) {
         console.error('sensors quick error', _)
@@ -351,6 +372,9 @@ export default {
       try {
         window.sensors.quick("trackHeatMap", e.target, {
           vr_carType_details_btnClick: 'btn_name_backtrack',
+          car_series: 'mpv',
+          car_type: 'E9',
+          cartype_version: window.activeCar.version
         });
       } catch (_) {
         console.error('sensors quick error', _)

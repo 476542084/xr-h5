@@ -5,14 +5,14 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import VueWechatTitle from "vue-wechat-title";
 import { ShareSheet } from "vant";
+window.startTime = +new Date();
 console.log("ENV", process.env.VUE_APP_ENV);
 console.log("VUE_APP_SA_URL", process.env.VUE_APP_SA_URL);
 try {
   if (
-    //暂时 uat 测试以及正式环境埋点
-    (process.env.VUE_APP_ENV &&
-      process.env.VUE_APP_ENV === "LauncherPrivate-test") ||
-    process.env.VUE_APP_ENV === "LauncherPrivate-prod"
+    //暂时 dev 测试以及正式环境埋点
+    (process.env.VUE_APP_ENV && process.env.VUE_APP_ENV === "Launcher-test") ||
+    process.env.VUE_APP_ENV === "Launcher-prod"
   ) {
     let sensors = require("sa-sdk-javascript");
     sensors.init({
@@ -30,7 +30,17 @@ try {
     });
     const uid = new URLSearchParams(window.location.search).get("uid");
     uid && sensors.login(uid);
-    sensors.quick("autoTrack");
+    try {
+      sensors.quick("autoTrack", {
+        platform: "h5",
+        car_series: "mpv",
+        car_type: "E9",
+        cartype_version: "宗师",
+      });
+    } catch (_) {
+      console.error(_);
+    }
+
     window.sensors = sensors;
   }
 } catch (error) {
