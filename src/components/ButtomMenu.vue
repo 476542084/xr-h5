@@ -135,7 +135,8 @@ export default {
           vr_carType_details_btnClick: item.sa,
           car_series: 'mpv',
           car_type: 'E9',
-          cartype_version: window.activeCar.version
+          cartype_version: window.activeCar.version,
+          uid: window.uid,
         });
       } catch (error) {
         console.error("sensors quick error", error);

@@ -31,12 +31,14 @@ try {
     });
     const uid = new URLSearchParams(window.location.search).get("uid");
     uid && sensors.login(uid);
+    window.uid = uid;
     try {
       sensors.quick("autoTrack", {
         platform: "h5",
         car_series: "mpv",
         car_type: "E9",
         cartype_version: "宗师",
+        uid: window.uid,
       });
     } catch (_) {
       console.error(_);

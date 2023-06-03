@@ -126,7 +126,8 @@ export default {
         car_series: "mpv",
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
-        vr_carType_details_browse: ''
+        vr_carType_details_browse: '',
+        uid: window.uid,
       });
     } catch (_) {
       console.error(_)
@@ -359,7 +360,8 @@ export default {
           vr_carType_details_btnClick: 'btn_name_music',
           car_series: 'mpv',
           car_type: 'E9',
-          cartype_version: window.activeCar.version
+          cartype_version: window.activeCar.version,
+          uid: window.uid,
         });
       } catch (_) {
         console.error('sensors quick error', _)
@@ -375,7 +377,8 @@ export default {
           vr_carType_details_btnClick: 'btn_name_backtrack',
           car_series: 'mpv',
           car_type: 'E9',
-          cartype_version: window.activeCar.version
+          cartype_version: window.activeCar.version,
+          uid: window.uid,
         });
       } catch (_) {
         console.error('sensors quick error', _)
