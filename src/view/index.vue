@@ -126,6 +126,7 @@ export default {
         car_series: "mpv",
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
+        vr_carType_details_browse: ''
       });
     } catch (_) {
       console.error(_)

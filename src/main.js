@@ -10,8 +10,8 @@ console.log("ENV", process.env.VUE_APP_ENV);
 console.log("VUE_APP_SA_URL", process.env.VUE_APP_SA_URL);
 try {
   if (
-    //暂时 dev 测试以及正式环境埋点
-    (process.env.VUE_APP_ENV && process.env.VUE_APP_ENV === "Launcher-test") ||
+    //暂时 dev 正式以及uat测试环境埋点
+    process.env.VUE_APP_ENV === "LauncherPrivate-test" ||
     process.env.VUE_APP_ENV === "Launcher-prod"
   ) {
     let sensors = require("sa-sdk-javascript");
@@ -26,6 +26,7 @@ try {
         clickmap: "default",
         scroll_notice_map: true,
         get_vtrack_config: true,
+        vr_carType_details_browse: "",
       },
     });
     const uid = new URLSearchParams(window.location.search).get("uid");
