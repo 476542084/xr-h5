@@ -1,12 +1,27 @@
 <template>
-  <div class="buttom_menu" @touchstart.stop @touchmove.stop.prevent @touchend.stop @mousewheel.stop>
+  <div
+    class="buttom_menu"
+    @touchstart.stop
+    @touchmove.stop.prevent
+    @touchend.stop
+    @mousewheel.stop
+  >
     <div class="btns">
       <div v-if="!isMiniprogram" class="btns_container">
-        <div v-for="(btn, idx) in btnsConfig" :key="btn.name" class="btn_item"
-          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="(e) => handleClickBtn(btn, idx, e)">
+        <div
+          v-for="(btn, idx) in btnsConfig"
+          :key="btn.name"
+          class="btn_item"
+          :class="[{ active: btn.name == currBtnName }, btn.class]"
+          @click.stop="(e) => handleClickBtn(btn, idx, e)"
+        >
           <div class="item_line left"></div>
           <div class="item_box">
-            <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
+            <img
+              v-show="btn.name == currBtnName"
+              :src="btn.activeIcon"
+              alt=""
+            />
             <img v-show="btn.name != currBtnName" :src="btn.icon" alt="" />
             <div class="item_name">{{ btn.name }}</div>
           </div>
@@ -19,12 +34,23 @@
     </div>
     <!-- <open-app v-if="!isMiniprogram"></open-app> -->
     <div class="share-sheet">
-      <van-share-sheet :show="showShare" title="立即分享给好友" :options="options" @select="onSelect" @cancel="() => {
-          showShare = false;
-        }
-        " />
+      <van-share-sheet
+        :show="showShare"
+        title="立即分享给好友"
+        :options="options"
+        @select="onSelect"
+        @cancel="
+          () => {
+            showShare = false;
+          }
+        "
+      />
     </div>
-    <div class="app-download-miniprogram" v-if="isMiniprogram && showDownloadCode" @click="setDownloadFalse">
+    <div
+      class="app-download-miniprogram"
+      v-if="isMiniprogram && showDownloadCode"
+      @click="setDownloadFalse"
+    >
       <div @click.stop class="code">
         <img src="../images/applogo.png" alt="app下载" />
       </div>
@@ -70,7 +96,7 @@ export default {
           class: "share",
           icon: require("../images/分享-未选.png"),
           activeIcon: require("../images/分享-选中.png"),
-          sa: "btn_name_share",
+          sa: "share",
         },
         {
           name: "立即预订",
@@ -78,7 +104,7 @@ export default {
           icon: require("../images/立即预订-未选.png"),
           activeIcon: require("../images/立即预订-选中.png"),
           url: `gac://order_now?id=${goodId}`,
-          sa: "btn_name_order",
+          sa: "order",
         },
         {
           name: "预约试驾",
@@ -87,7 +113,7 @@ export default {
           activeIcon: require("../images/预约试驾-选中.png"),
           url: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
           url2: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
-          sa: "btn_name_appointment",
+          sa: "appointment",
         },
         {
           name: "参数配置",
@@ -96,7 +122,7 @@ export default {
           activeIcon: require("../images/参数配置-选中.png"),
           url: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
           url2: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
-          sa: "btn_name_configuration",
+          sa: "configuration",
         },
         {
           name: "在线客服",
@@ -104,7 +130,7 @@ export default {
           icon: require("../images/在线客服-未选.png"),
           activeIcon: require("../images/在线客服-选中.png"),
           url: "gac://ntalker",
-          sa: "btn_name_service",
+          sa: "service",
         },
       ];
     },
@@ -118,7 +144,7 @@ export default {
     // });
   },
   methods: {
-    sensorsInit() { },
+    sensorsInit() {},
     setDownloadFalse() {
       this.showDownloadCode = false;
     },
@@ -129,12 +155,12 @@ export default {
         this.isShowFunctionArea = !this.isShowFunctionArea;
       }
     },
-    handleClickBtn(item, index, e) {
+    handleClickBtn(item, index) {
       try {
-        window.sensors.quick("trackHeatMap", e.target, {
-          vr_carType_details_btnClick: item.sa,
-          car_series: 'mpv',
-          car_type: 'E9',
+        window.sensors.track("vr_carType_details_btnClick", {
+          btn_name: item.sa,
+          car_series: "mpv",
+          car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
         });
@@ -392,10 +418,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -419,10 +447,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .left {
@@ -464,10 +494,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -510,10 +542,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -543,10 +577,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -558,14 +594,12 @@ export default {
     }
 
     .btn_img {
-
       width: (94 / 24rem);
 
       position: fixed;
       left: 50%;
       bottom: 1rem;
       transform: translate(-50%, 0);
-
     }
 
     .miniprogram {
@@ -576,7 +610,6 @@ export default {
 
 @media screen and (max-width: 320px) {
   .btns_container {
-
     .btn_item:nth-child(2),
     .btn_item:nth-child(3),
     .btn_item:nth-child(4) {

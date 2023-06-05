@@ -4,7 +4,13 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
-      <img class="playIcon" v-if="showPlay" @touchstart.stop="handlerPlay()" src="../images/play.png" alt="play" />
+      <img
+        class="playIcon"
+        v-if="showPlay"
+        @touchstart.stop="handlerPlay()"
+        src="../images/play.png"
+        alt="play"
+      />
 
       <!-- 2d切3d不允许提示 -->
       <div v-if="showEnableToggle" class="toggle-tip">
@@ -21,10 +27,19 @@
       <!-- 当展示图标以及2d才展示2d序列图 -->
       <D2 v-if="show2d" />
 
-      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="213" :activityId="240" />
+      <ButtomMenu
+        v-if="enter"
+        :isMiniprogram="isMiniprogram"
+        :goodId="213"
+        :activityId="240"
+      />
 
       <!-- car select list -->
-      <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
+      <CarSelect
+        v-if="showCarSelect && !show2d"
+        :activeCar="activeCar"
+        :onChange="handerCarChange"
+      />
 
       <!-- toggle -->
       <!-- 
@@ -32,18 +47,33 @@
         2、动态控制show2d3dIcon，在7003时候，自动切到2d也展示
         
      -->
-      <img v-if="enter || show2d" :class="!show2d && enter ? `toggleIcon` : `backIcon`" @touchstart.stop="handlerToggle()"
-        :src="show2d ? logo3D : logo2D" alt="toggleIcon" />
+      <img
+        v-if="enter || show2d"
+        :class="!show2d && enter ? `toggleIcon` : `backIcon`"
+        @touchstart.stop="handlerToggle()"
+        :src="show2d ? logo3D : logo2D"
+        alt="toggleIcon"
+      />
 
       <!-- music play -->
-      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon && !show2d"
-        @touchstart.stop="(e) => toggleMusicPlay(e)" src="../images/icon/music.png" alt="music" />
+      <img
+        :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'"
+        v-if="showMusicIcon && !show2d"
+        @touchstart.stop="(e) => toggleMusicPlay(e)"
+        src="../images/icon/music.png"
+        alt="music"
+      />
 
       <audio id="bg-audio" :src="mp3Url">…</audio>
 
       <!-- back -->
-      <img class="backIcon" v-if="showBackIcon && !show2d" @touchstart.stop="(e) => handlerBack(e)"
-        src="../images/icon/back.png" alt="music" />
+      <img
+        class="backIcon"
+        v-if="showBackIcon && !show2d"
+        @touchstart.stop="(e) => handlerBack(e)"
+        src="../images/icon/back.png"
+        alt="music"
+      />
     </div>
   </div>
 </template>
@@ -68,6 +98,7 @@ export default {
       activeCar: {
         title: "传祺E9",
         version: "宗师",
+        sa: "E9-1",
         timeLineId: "LC-00000001",
       },
       isMiniprogram: navigator.userAgent.includes("miniProgram"),
@@ -114,25 +145,23 @@ export default {
     };
   },
   mounted() {
-    window.activeCar = this.activeCar
+    window.activeCar = this.activeCar;
 
     try {
-      const time = (+new Date() - window.startTime) / 1000
-      console.log('time----', time)
-      window.sensors.quick("trackHeatMap", document.body, {
-        e_code_team: '瑞云',
-        e_code_version: '',
+      const time = (+new Date() - window.startTime) / 1000;
+      console.log("time----", time);
+      window.sensors.track("vr_carType_details_browse", {
+        e_code_team: "瑞云",
+        e_code_version: "",
         event_duration: time,
         car_series: "mpv",
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
-        vr_carType_details_browse: '',
         uid: window.uid,
       });
     } catch (_) {
-      console.error(_)
+      console.error(_);
     }
-
 
     // window.show2d3dIcon = this.show2d3dIcon
     // window.handlerEnter = this.handlerEnter;
@@ -217,8 +246,8 @@ export default {
                     e.data.responseData[0].data[0].curLevel
                   );
                   if (e.data.responseData[0].data[0].curLevel == 1) {
-                    window.location.href = 'https://xr.gacmotor.com/trumpchi'
-                    return
+                    window.location.href = "https://xr.gacmotor.com/trumpchi";
+                    return;
                   }
                   if (e.data.responseData[0].data[0].curLevel > 1) {
                     window.app.ueBack();
@@ -344,6 +373,15 @@ export default {
         try {
           window.activeCar = car;
           this.activeCar = car;
+
+          window.sensors.track("vr_carType_details_btnClick", {
+            btn_name: car.sa,
+            car_series: "mpv",
+            car_type: "E9",
+            cartype_version: car.version,
+            uid: window.uid,
+          });
+
           // this.handlerInitialization()
           // window.app.selectModel(car.timeLineId)
           // console.log('car.timeLineId', car.timeLineId)
@@ -353,35 +391,35 @@ export default {
         }
       }
     },
-    toggleMusicPlay(e) {
+    toggleMusicPlay() {
       this.isPlaying ? this.audio.pause() : this.audio.play();
       try {
-        window.sensors.quick("trackHeatMap", e.target, {
-          vr_carType_details_btnClick: 'btn_name_music',
-          car_series: 'mpv',
-          car_type: 'E9',
+        window.sensors.track("vr_carType_details_btnClick", {
+          btn_name: "music",
+          car_series: "mpv",
+          car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
         });
       } catch (_) {
-        console.error('sensors quick error', _)
+        console.error("sensors quick error", _);
       }
     },
     getStatusByTimeLineId() {
       window.app.getStatus("GETS-00000001");
     },
-    handlerBack(e) {
+    handlerBack() {
       window.app.getStatus("GETS-00000008");
       try {
-        window.sensors.quick("trackHeatMap", e.target, {
-          vr_carType_details_btnClick: 'btn_name_backtrack',
-          car_series: 'mpv',
-          car_type: 'E9',
+        window.sensors.track("vr_carType_details_btnClick", {
+          btn_name: "backtrack",
+          car_series: "mpv",
+          car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
         });
       } catch (_) {
-        console.error('sensors quick error', _)
+        console.error("sensors quick error", _);
       }
       // window.app.ueBack()
     },

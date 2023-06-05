@@ -26,14 +26,14 @@ try {
         clickmap: "default",
         scroll_notice_map: true,
         get_vtrack_config: true,
-        vr_carType_details_browse: "",
       },
     });
     const uid = new URLSearchParams(window.location.search).get("uid");
     uid && sensors.login(uid);
     window.uid = uid;
     try {
-      sensors.quick("autoTrack", {
+      sensors.quick("autoTrack");
+      sensors.track("vr_carType_details_load_browse", {
         platform: "h5",
         car_series: "mpv",
         car_type: "E9",
