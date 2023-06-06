@@ -127,7 +127,7 @@ export default {
                     "curLevel:",
                     e.data.responseData[0].data[0].curLevel
                   );
-                  if(e.data.responseData[0].data[0].curLevel == 1){
+                  if (e.data.responseData[0].data[0].curLevel == 1) {
                     window.location.href = 'https://xr.gacmotor.com/trumpchi-cache'
                     return
                   }
@@ -137,13 +137,14 @@ export default {
                 }
               } catch (error) {
                 console.error(error);
-              }
+               }
             }
 
             if (e.data.reqTimeLineId === "GETS-00000001") {
               try {
                 if (e.data.responseData && e.data.responseData.length) {
                   let obj = e.data.responseData[0].data;
+                  obj = obj.map((o) => { return { ...o, selected: true } })
                   console.log('obj----', obj)
                   obj.push({
                     "timeLineId": "FOTHUM-00000003", //唯一编码

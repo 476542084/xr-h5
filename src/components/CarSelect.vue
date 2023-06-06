@@ -3,53 +3,28 @@
     <!-- <h4 class="title">{{ activeCar.title }}</h4> -->
     <img class="car-title" src="../images/car-title.png" alt="car-title" />
     <div class="car-content">
-      <div
-        class="version"
-        @click.stop="
-          () => {
-            this.openList = !this.openList;
-          }
-        "
-      >
+      <div class="version" @click.stop="() => {
+          this.openList = !this.openList;
+        }
+        ">
         <span>{{ activeCar.title }} {{ activeCar.version }}</span>
-        <i
-          class="icon"
-          :style="openList ? `transform: rotate(180deg);` : 'unset'"
-          ><svg
-            width="1em"
-            height="1em"
-            viewBox="0 0 8 6"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style="transform: scale(0.8)"
-          >
+        <i class="icon" :style="openList ? `transform: rotate(180deg);` : 'unset'"><svg width="1em" height="1em"
+            viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(0.8)">
             <path
               d="M1.222 1.039a.5.5 0 0 1 .707 0l2.18 2.18 2.118-2.117a.5.5 0 0 1 .707 0l.353.353a.5.5 0 0 1 0 .707L4.46 4.991a.5.5 0 0 1-.707 0l-.354-.354a.504.504 0 0 1-.048-.055L.868 2.1a.5.5 0 0 1 0-.707l.354-.354Z"
-              fill="white"
-            ></path></svg
-        ></i>
+              fill="white"></path>
+          </svg></i>
       </div>
-      <div
-        class="car-select"
-        :style="`opacity: ${openList ? 1 : 0};transform:${
-          openList ? 'scaleY(1)' : 'scaleY(0)'
-        };`"
-      >
-        <div
-          :class="
-            car.timeLineId === activeCar.timeLineId
-              ? 'car-item active'
-              : 'car-item'
-          "
-          v-for="(car, index) in carList"
-          :key="`car-${index}`"
-          @click.stop="
-            () => {
-              this.onChange(car);
-              this.openList = false;
-            }
-          "
-        >
+      <div class="car-select" :style="`opacity: ${openList ? 1 : 0};transform:${openList ? 'scaleY(1)' : 'scaleY(0)'
+        };`">
+        <div :class="car.timeLineId === activeCar.timeLineId
+            ? 'car-item active'
+            : 'car-item'
+          " v-for="(car, index) in carList" :key="`car-${index}`" @click.stop="() => {
+      this.onChange(car);
+      this.openList = false;
+    }
+    ">
           <span>{{ car.title }} </span>
           {{ car.version }}
         </div>
@@ -87,8 +62,8 @@ export default {
     };
   },
   methods: {},
-  mounted() {},
-  unmounted() {},
+  mounted() { },
+  unmounted() { },
 };
 </script>
 <style lang="less" scoped>

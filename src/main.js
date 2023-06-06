@@ -5,6 +5,28 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import VueWechatTitle from "vue-wechat-title";
 import { ShareSheet } from "vant";
+
+window.carList = [
+  {
+    title: "传祺E9",
+    version: "PRO",
+    sa: "E9-3",
+    timeLineId: "LC-00000003",
+  },
+  {
+    title: "传祺E9",
+    version: "MAX",
+    sa: "E9-2",
+    timeLineId: "LC-00000002",
+  },
+  {
+    title: "传祺E9",
+    version: "宗师",
+    sa: "E9-1",
+    timeLineId: "LC-00000001",
+  },
+];
+
 window.startTime = +new Date();
 console.log("ENV", process.env.VUE_APP_ENV);
 console.log("VUE_APP_SA_URL", process.env.VUE_APP_SA_URL);
@@ -28,7 +50,11 @@ try {
         get_vtrack_config: true,
       },
     });
+    sensors.use("PageLeave");
     const uid = new URLSearchParams(window.location.search).get("uid");
+    const shareTimeLineId = new URLSearchParams(window.location.search).get(
+      "shareTimeLineId"
+    );
     uid && sensors.login(uid);
     window.uid = uid;
     try {
@@ -37,7 +63,11 @@ try {
         platform: "h5",
         car_series: "mpv",
         car_type: "E9",
-        cartype_version: "宗师",
+        cartype_version: shareTimeLineId
+          ? window.carList.filter(
+              (car) => `"${car.timeLineId}"` === shareTimeLineId
+            )[0]["version"]
+          : "宗师",
         uid: window.uid,
       });
     } catch (_) {
@@ -45,6 +75,23 @@ try {
     }
 
     window.sensors = sensors;
+
+    window.addEventListener("beforeunload", function () {
+      // 发送ajax请求或者使用图片请求将数据上报到服务器端
+
+      window.sensors.track("vr_carType_details_load_leave", {
+        e_code_team: "瑞云",
+        e_code_version: "",
+        car_series: "mpv",
+        car_type: "E9",
+        cartype_version: shareTimeLineId
+          ? window.carList.filter(
+              (car) => `"${car.timeLineId}"` === shareTimeLineId
+            )[0]["version"]
+          : "宗师",
+        uid: window.uid,
+      });
+    });
   }
 } catch (error) {
   console.log("sensors error", error);

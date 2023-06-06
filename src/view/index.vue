@@ -4,13 +4,7 @@
       <div v-if="flag" class="mistake">{{ code }}</div>
       <Loading v-if="showLoading" />
 
-      <img
-        class="playIcon"
-        v-if="showPlay"
-        @touchstart.stop="handlerPlay()"
-        src="../images/play.png"
-        alt="play"
-      />
+      <img class="playIcon" v-if="showPlay" @touchstart.stop="handlerPlay()" src="../images/play.png" alt="play" />
 
       <!-- 2d切3d不允许提示 -->
       <div v-if="showEnableToggle" class="toggle-tip">
@@ -27,19 +21,10 @@
       <!-- 当展示图标以及2d才展示2d序列图 -->
       <D2 v-if="show2d" />
 
-      <ButtomMenu
-        v-if="enter"
-        :isMiniprogram="isMiniprogram"
-        :goodId="213"
-        :activityId="240"
-      />
+      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="213" :activityId="240" />
 
       <!-- car select list -->
-      <CarSelect
-        v-if="showCarSelect && !show2d"
-        :activeCar="activeCar"
-        :onChange="handerCarChange"
-      />
+      <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
 
       <!-- toggle -->
       <!-- 
@@ -47,33 +32,18 @@
         2、动态控制show2d3dIcon，在7003时候，自动切到2d也展示
         
      -->
-      <img
-        v-if="enter || show2d"
-        :class="!show2d && enter ? `toggleIcon` : `backIcon`"
-        @touchstart.stop="handlerToggle()"
-        :src="show2d ? logo3D : logo2D"
-        alt="toggleIcon"
-      />
+      <img v-if="enter || show2d" :class="!show2d && enter ? `toggleIcon` : `backIcon`" @touchstart.stop="handlerToggle()"
+        :src="show2d ? logo3D : logo2D" alt="toggleIcon" />
 
       <!-- music play -->
-      <img
-        :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'"
-        v-if="showMusicIcon && !show2d"
-        @touchstart.stop="(e) => toggleMusicPlay(e)"
-        src="../images/icon/music.png"
-        alt="music"
-      />
+      <img :class="isPlaying ? 'musicIcon musicIcon-active' : 'musicIcon'" v-if="showMusicIcon && !show2d"
+        @touchstart.stop="(e) => toggleMusicPlay(e)" src="../images/icon/music.png" alt="music" />
 
       <audio id="bg-audio" :src="mp3Url">…</audio>
 
       <!-- back -->
-      <img
-        class="backIcon"
-        v-if="showBackIcon && !show2d"
-        @touchstart.stop="(e) => handlerBack(e)"
-        src="../images/icon/back.png"
-        alt="music"
-      />
+      <img class="backIcon" v-if="showBackIcon && !show2d" @touchstart.stop="(e) => handlerBack(e)"
+        src="../images/icon/back.png" alt="music" />
     </div>
   </div>
 </template>
@@ -145,9 +115,23 @@ export default {
     };
   },
   mounted() {
-    window.activeCar = this.activeCar;
+
+
 
     try {
+
+      const shareTimeLineId = new URLSearchParams(window.location.search).get(
+        "shareTimeLineId"
+      );
+      console.log('shareTimeLineId', shareTimeLineId)
+      if (shareTimeLineId) {
+        window.activeCar = window.carList.filter((car) => `"${car.timeLineId}"` === shareTimeLineId)[0]
+        this.activeCar = window.activeCar
+      } else {
+        window.activeCar = this.activeCar;
+      }
+
+
       const time = (+new Date() - window.startTime) / 1000;
       console.log("time----", time);
       window.sensors.track("vr_carType_details_browse", {
@@ -159,6 +143,20 @@ export default {
         cartype_version: window.activeCar.version || "宗师",
         uid: window.uid,
       });
+
+
+      window.addEventListener("beforeunload", function () {
+        // 发送ajax请求或者使用图片请求将数据上报到服务器端
+        window.sensors.track("vr_carType_details_leave", {
+          e_code_team: "瑞云",
+          e_code_version: "",
+          car_series: "mpv",
+          car_type: "E9",
+          cartype_version: window.activeCar.version || "宗师",
+          uid: window.uid,
+        });
+      });
+
     } catch (_) {
       console.error(_);
     }
@@ -279,6 +277,7 @@ export default {
                   }
 
                   let obj = e.data.responseData[0].data;
+                  obj = obj.map((o) => { return { ...o, selected: true } })
                   obj.push({
                     timeLineId: "FOTHSS-00000001", //唯一编码
                     groupCode: "OTHER",
@@ -286,6 +285,7 @@ export default {
                     featureCode: "HSCREEN",
                     selected: true,
                   });
+                  console.log("selectModel：obj", obj)
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -556,7 +556,7 @@ export default {
             return numMapObj.get(+option);
           });
           app.selectModel(
-            "LC-00000001",
+            this.params.shareTimeLineId || "LC-00000001",
             // objArray,
             objArray.concat({
               timeLineId: "FOTHSS-00000001", //唯一编码

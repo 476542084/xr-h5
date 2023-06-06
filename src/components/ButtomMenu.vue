@@ -1,27 +1,12 @@
 <template>
-  <div
-    class="buttom_menu"
-    @touchstart.stop
-    @touchmove.stop.prevent
-    @touchend.stop
-    @mousewheel.stop
-  >
+  <div class="buttom_menu" @touchstart.stop @touchmove.stop.prevent @touchend.stop @mousewheel.stop>
     <div class="btns">
       <div v-if="!isMiniprogram" class="btns_container">
-        <div
-          v-for="(btn, idx) in btnsConfig"
-          :key="btn.name"
-          class="btn_item"
-          :class="[{ active: btn.name == currBtnName }, btn.class]"
-          @click.stop="(e) => handleClickBtn(btn, idx, e)"
-        >
+        <div v-for="(btn, idx) in btnsConfig" :key="btn.name" class="btn_item"
+          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="(e) => handleClickBtn(btn, idx, e)">
           <div class="item_line left"></div>
           <div class="item_box">
-            <img
-              v-show="btn.name == currBtnName"
-              :src="btn.activeIcon"
-              alt=""
-            />
+            <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
             <img v-show="btn.name != currBtnName" :src="btn.icon" alt="" />
             <div class="item_name">{{ btn.name }}</div>
           </div>
@@ -34,23 +19,12 @@
     </div>
     <!-- <open-app v-if="!isMiniprogram"></open-app> -->
     <div class="share-sheet">
-      <van-share-sheet
-        :show="showShare"
-        title="立即分享给好友"
-        :options="options"
-        @select="onSelect"
-        @cancel="
-          () => {
-            showShare = false;
-          }
-        "
-      />
+      <van-share-sheet :show="showShare" title="立即分享给好友" :options="options" @select="onSelect" @cancel="() => {
+          showShare = false;
+        }
+        " />
     </div>
-    <div
-      class="app-download-miniprogram"
-      v-if="isMiniprogram && showDownloadCode"
-      @click="setDownloadFalse"
-    >
+    <div class="app-download-miniprogram" v-if="isMiniprogram && showDownloadCode" @click="setDownloadFalse">
       <div @click.stop class="code">
         <img src="../images/applogo.png" alt="app下载" />
       </div>
@@ -144,7 +118,7 @@ export default {
     // });
   },
   methods: {
-    sensorsInit() {},
+    sensorsInit() { },
     setDownloadFalse() {
       this.showDownloadCode = false;
     },
@@ -203,9 +177,9 @@ export default {
         if (new URLSearchParams(window.location.search).get("optionMap")) {
           //url含有分享的optionMap，需要重置且设置新的有效值
           url = url.split("&optionMap=")[0];
-          url = `${url}&optionMap="${window.optionMap}"`;
+          url = `${url}&optionMap="${window.optionMap}"&shareTimeLineId="${window.activeCar.timeLineId}"`;
         } else {
-          url = `${url}&optionMap="${window.optionMap}"`;
+          url = `${url}&optionMap="${window.optionMap}"&shareTimeLineId="${window.activeCar.timeLineId}"`;
         }
       }
 
@@ -418,12 +392,10 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0) 0%,
-              #e9e9e9 50%,
-              rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0) 0%,
+                #e9e9e9 50%,
+                rgba(255, 255, 255, 0) 100%);
           }
 
           .right {
@@ -447,12 +419,10 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0) 0%,
-              #e9e9e9 50%,
-              rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0) 0%,
+                #e9e9e9 50%,
+                rgba(255, 255, 255, 0) 100%);
           }
 
           .left {
@@ -494,12 +464,10 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0) 0%,
-              #e9e9e9 50%,
-              rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0) 0%,
+                #e9e9e9 50%,
+                rgba(255, 255, 255, 0) 100%);
           }
 
           .right {
@@ -542,12 +510,10 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0) 0%,
-              #e9e9e9 50%,
-              rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0) 0%,
+                #e9e9e9 50%,
+                rgba(255, 255, 255, 0) 100%);
           }
 
           .right {
@@ -577,12 +543,10 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0) 0%,
-              #e9e9e9 50%,
-              rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0) 0%,
+                #e9e9e9 50%,
+                rgba(255, 255, 255, 0) 100%);
           }
 
           .right {
@@ -610,6 +574,7 @@ export default {
 
 @media screen and (max-width: 320px) {
   .btns_container {
+
     .btn_item:nth-child(2),
     .btn_item:nth-child(3),
     .btn_item:nth-child(4) {
