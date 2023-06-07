@@ -137,7 +137,7 @@ export default {
       window.sensors.track("vr_carType_details_browse", {
         e_code_team: "瑞云",
         e_code_version: "",
-        event_duration: +(time).toFixed(2),
+        event_duration: +(time / 60).toFixed(2),
         car_series: "mpv",
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
@@ -427,6 +427,19 @@ export default {
     },
 
     handlerToggle() {
+
+      try {
+        window.sensors.track("vr_carType_details_btnClick", {
+          btn_name: this.show2d ? '3D' : '2D',
+          car_series: "mpv",
+          car_type: "E9",
+          cartype_version: window.activeCar.version,
+          uid: window.uid,
+        });
+      } catch (_) {
+        console.error("sensors quick error", _);
+      }
+
       //2d 切换 3d时候判断,没有enter或者没有微信点击（isEnableToggle）
       if (this.show2d && !this.enter && !this.isEnableToggle) {
         //提示不能切3d
