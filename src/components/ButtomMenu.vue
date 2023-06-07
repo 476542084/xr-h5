@@ -70,7 +70,7 @@ export default {
           class: "share",
           icon: require("../images/分享-未选.png"),
           activeIcon: require("../images/分享-选中.png"),
-          sa: "share",
+          sa: "分享",
         },
         {
           name: "立即预订",
@@ -78,7 +78,7 @@ export default {
           icon: require("../images/立即预订-未选.png"),
           activeIcon: require("../images/立即预订-选中.png"),
           url: `gac://order_now?id=${goodId}`,
-          sa: "order",
+          sa: "立即预定",
         },
         {
           name: "预约试驾",
@@ -87,7 +87,7 @@ export default {
           activeIcon: require("../images/预约试驾-选中.png"),
           url: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
           url2: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
-          sa: "appointment",
+          sa: "预约试驾",
         },
         {
           name: "参数配置",
@@ -96,7 +96,7 @@ export default {
           activeIcon: require("../images/参数配置-选中.png"),
           url: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
           url2: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
-          sa: "configuration",
+          sa: "参数配置",
         },
         {
           name: "在线客服",
@@ -104,7 +104,7 @@ export default {
           icon: require("../images/在线客服-未选.png"),
           activeIcon: require("../images/在线客服-选中.png"),
           url: "gac://ntalker",
-          sa: "service",
+          sa: "在线客服",
         },
       ];
     },

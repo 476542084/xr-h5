@@ -10,19 +10,19 @@ window.carList = [
   {
     title: "传祺E9",
     version: "PRO",
-    sa: "E9-3",
+    sa: "PRO",
     timeLineId: "LC-00000003",
   },
   {
     title: "传祺E9",
     version: "MAX",
-    sa: "E9-2",
+    sa: "MAX",
     timeLineId: "LC-00000002",
   },
   {
     title: "传祺E9",
     version: "宗师",
-    sa: "E9-1",
+    sa: "宗师",
     timeLineId: "LC-00000001",
   },
 ];
@@ -59,7 +59,7 @@ try {
     window.uid = uid;
     try {
       sensors.quick("autoTrack");
-      sensors.track("vr_carType_details_load_browse", {
+      sensors.track("vr_carType_load_browse", {
         platform: "h5",
         car_series: "mpv",
         car_type: "E9",
@@ -77,13 +77,15 @@ try {
     window.sensors = sensors;
 
     window.addEventListener("beforeunload", function () {
+      const time = (+new Date() - window.startTime) / 1000;
       // 发送ajax请求或者使用图片请求将数据上报到服务器端
 
-      window.sensors.track("vr_carType_details_load_leave", {
+      window.sensors.track("vr_carType_load_leave", {
         e_code_team: "瑞云",
         e_code_version: "",
         car_series: "mpv",
         car_type: "E9",
+        event_duration: +(time / 60).toFixed(2),
         cartype_version: shareTimeLineId
           ? window.carList.filter(
               (car) => `"${car.timeLineId}"` === shareTimeLineId

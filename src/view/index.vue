@@ -68,7 +68,7 @@ export default {
       activeCar: {
         title: "传祺E9",
         version: "宗师",
-        sa: "E9-1",
+        sa: "宗师",
         timeLineId: "LC-00000001",
       },
       isMiniprogram: navigator.userAgent.includes("miniProgram"),
@@ -137,7 +137,7 @@ export default {
       window.sensors.track("vr_carType_details_browse", {
         e_code_team: "瑞云",
         e_code_version: "",
-        event_duration: time,
+        event_duration: +(time).toFixed(2),
         car_series: "mpv",
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
@@ -146,11 +146,13 @@ export default {
 
 
       window.addEventListener("beforeunload", function () {
+        const time = (+new Date() - window.startTime) / 1000;
         // 发送ajax请求或者使用图片请求将数据上报到服务器端
         window.sensors.track("vr_carType_details_leave", {
           e_code_team: "瑞云",
           e_code_version: "",
           car_series: "mpv",
+          event_duration: +(time / 60).toFixed(2),
           car_type: "E9",
           cartype_version: window.activeCar.version || "宗师",
           uid: window.uid,
@@ -395,7 +397,7 @@ export default {
       this.isPlaying ? this.audio.pause() : this.audio.play();
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: "music",
+          btn_name: "音乐键",
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
@@ -412,7 +414,7 @@ export default {
       window.app.getStatus("GETS-00000008");
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: "backtrack",
+          btn_name: "返回键",
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,

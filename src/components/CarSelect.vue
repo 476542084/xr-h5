@@ -43,19 +43,19 @@ export default {
         {
           title: "传祺E9",
           version: "PRO",
-          sa: "E9-3",
+          sa: "PRO",
           timeLineId: "LC-00000003",
         },
         {
           title: "传祺E9",
           version: "MAX",
-          sa: "E9-2",
+          sa: "MAX",
           timeLineId: "LC-00000002",
         },
         {
           title: "传祺E9",
           version: "宗师",
-          sa: "E9-1",
+          sa: "宗师",
           timeLineId: "LC-00000001",
         },
       ],
