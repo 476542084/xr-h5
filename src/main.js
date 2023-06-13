@@ -6,6 +6,22 @@ import "element-plus/dist/index.css";
 import VueWechatTitle from "vue-wechat-title";
 import { ShareSheet } from "vant";
 
+const souceType = new URLSearchParams(window.location.search).get("souceType");
+switch (souceType) {
+  case '"APP_01"':
+    window.souceType_port = "小程序";
+    break;
+  case '"APP_02"':
+    window.souceType_port = "app";
+    break;
+  case '"APP_03"':
+    window.souceType_port = "大屏";
+    break;
+  default:
+    window.souceType_port = "unknown";
+    break;
+}
+
 window.carList = [
   {
     title: "传祺E9",
@@ -52,48 +68,14 @@ try {
     });
     sensors.use("PageLeave");
     const uid = new URLSearchParams(window.location.search).get("uid");
-    const shareTimeLineId = new URLSearchParams(window.location.search).get(
-      "shareTimeLineId"
-    );
+    // const shareTimeLineId = new URLSearchParams(window.location.search).get(
+    //   "shareTimeLineId"
+    // );
     uid && sensors.login(uid);
     window.uid = uid;
-    try {
-      sensors.quick("autoTrack");
-      sensors.track("vr_carType_load_browse", {
-        platform: "h5",
-        car_series: "mpv",
-        car_type: "E9",
-        cartype_version: shareTimeLineId
-          ? window.carList.filter(
-              (car) => `"${car.timeLineId}"` === shareTimeLineId
-            )[0]["version"]
-          : "宗师",
-        uid: window.uid,
-      });
-    } catch (_) {
-      console.error(_);
-    }
+    sensors.quick("autoTrack");
 
     window.sensors = sensors;
-
-    window.addEventListener("beforeunload", function () {
-      const time = (+new Date() - window.startTime) / 1000;
-      // 发送ajax请求或者使用图片请求将数据上报到服务器端
-
-      window.sensors.track("vr_carType_load_leave", {
-        e_code_team: "瑞云",
-        e_code_version: "",
-        car_series: "mpv",
-        car_type: "E9",
-        event_duration: +(time / 60).toFixed(2),
-        cartype_version: shareTimeLineId
-          ? window.carList.filter(
-              (car) => `"${car.timeLineId}"` === shareTimeLineId
-            )[0]["version"]
-          : "宗师",
-        uid: window.uid,
-      });
-    });
   }
 } catch (error) {
   console.log("sensors error", error);

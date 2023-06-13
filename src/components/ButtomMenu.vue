@@ -132,11 +132,13 @@ export default {
     handleClickBtn(item, index) {
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: item.sa,
+          btn_type: item.sa,
+          btn_name:'',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
+          port: window.souceType_port
         });
       } catch (error) {
         console.error("sensors quick error", error);

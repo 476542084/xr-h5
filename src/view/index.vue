@@ -142,6 +142,7 @@ export default {
         car_type: "E9",
         cartype_version: window.activeCar.version || "宗师",
         uid: window.uid,
+        port:window.souceType_port
       });
 
 
@@ -156,6 +157,7 @@ export default {
           car_type: "E9",
           cartype_version: window.activeCar.version || "宗师",
           uid: window.uid,
+          port:window.souceType_port
         });
       });
 
@@ -377,11 +379,13 @@ export default {
           this.activeCar = car;
 
           window.sensors.track("vr_carType_details_btnClick", {
-            btn_name: car.sa,
+            btn_type: `切换车型-${car.sa}`,
+            btn_name:'',
             car_series: "mpv",
             car_type: "E9",
             cartype_version: car.version,
             uid: window.uid,
+            port:window.souceType_port
           });
 
           // this.handlerInitialization()
@@ -397,11 +401,13 @@ export default {
       this.isPlaying ? this.audio.pause() : this.audio.play();
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: "音乐键",
+          btn_type: "音乐键",
+          btn_name:'',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
+          port:window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
@@ -414,11 +420,13 @@ export default {
       window.app.getStatus("GETS-00000008");
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: "返回键",
+          btn_type: "返回键",
+          btn_name:'',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
+          port:window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
@@ -430,11 +438,13 @@ export default {
 
       try {
         window.sensors.track("vr_carType_details_btnClick", {
-          btn_name: this.show2d ? '3D' : '2D',
+          btn_type: this.show2d ? '3D' : '2D',
+          btn_name:'',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
+          port:window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
