@@ -131,21 +131,6 @@ export default {
         window.activeCar = this.activeCar;
       }
 
-
-      const time = (+new Date() - window.startTime) / 1000;
-      console.log("time----", time);
-      window.sensors.track("vr_carType_details_browse", {
-        e_code_team: "瑞云",
-        e_code_version: "",
-        event_duration: +(time / 60).toFixed(2),
-        car_series: "mpv",
-        car_type: "E9",
-        cartype_version: window.activeCar.version || "宗师",
-        uid: window.uid,
-        port:window.souceType_port
-      });
-
-
       window.addEventListener("beforeunload", function () {
         const time = (+new Date() - window.startTime) / 1000;
         // 发送ajax请求或者使用图片请求将数据上报到服务器端
@@ -157,7 +142,7 @@ export default {
           car_type: "E9",
           cartype_version: window.activeCar.version || "宗师",
           uid: window.uid,
-          port:window.souceType_port
+          port: window.souceType_port
         });
       });
 
@@ -362,6 +347,21 @@ export default {
       this.showBackIcon = true;
       this.showMusicIcon = true;
       this.show2d3dIcon = true;
+
+
+      const time = (+new Date() - window.startTime) / 1000;
+      console.log("time----", time);
+      window.sensors.track("vr_carType_details_browse", {
+        e_code_team: "瑞云",
+        e_code_version: "",
+        event_duration: +(time / 60).toFixed(2),
+        car_series: "mpv",
+        car_type: "E9",
+        cartype_version: window.activeCar.version || "宗师",
+        uid: window.uid,
+        port: window.souceType_port
+      });
+
     },
 
     handlerInitialization() {
@@ -380,12 +380,12 @@ export default {
 
           window.sensors.track("vr_carType_details_btnClick", {
             btn_type: `切换车型-${car.sa}`,
-            btn_name:'',
+            btn_name: '',
             car_series: "mpv",
             car_type: "E9",
             cartype_version: car.version,
             uid: window.uid,
-            port:window.souceType_port
+            port: window.souceType_port
           });
 
           // this.handlerInitialization()
@@ -402,12 +402,12 @@ export default {
       try {
         window.sensors.track("vr_carType_details_btnClick", {
           btn_type: "音乐键",
-          btn_name:'',
+          btn_name: '',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
-          port:window.souceType_port
+          port: window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
@@ -421,12 +421,12 @@ export default {
       try {
         window.sensors.track("vr_carType_details_btnClick", {
           btn_type: "返回键",
-          btn_name:'',
+          btn_name: '',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
-          port:window.souceType_port
+          port: window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
@@ -439,12 +439,12 @@ export default {
       try {
         window.sensors.track("vr_carType_details_btnClick", {
           btn_type: this.show2d ? '3D' : '2D',
-          btn_name:'',
+          btn_name: '',
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
-          port:window.souceType_port
+          port: window.souceType_port
         });
       } catch (_) {
         console.error("sensors quick error", _);
