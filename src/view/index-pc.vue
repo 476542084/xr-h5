@@ -52,7 +52,7 @@ export default {
       customColor: "#E50120",
       showItem: true,
       deploy: "2",
-      souceType: "APP_01",
+      sourceType: "APP_01",
       ueMode: "UEMODE_01",
       screenShow: "VSCREEN",
       ueSelector: "ON",
@@ -271,12 +271,12 @@ export default {
     getUrlParam() {
       const params = this.GetUrlParam();
       this.params = params;
-      if (!params.souceType || params.souceType === '"') {
+      if (!params.sourceType || params.sourceType === '"') {
         this.flag = true;
         this.code = "6000:系统来源参数不能为空";
         return;
       }
-      // else if (!params.timeLineId || params.souceType === "\"") {
+      // else if (!params.timeLineId || params.sourceType === "\"") {
       //   this.flag = true
       //   this.code = "6001:时间线ID参数不能为空"
       //   return
@@ -309,7 +309,7 @@ export default {
       else if (!this.ueSelectorlist.includes(params.ueSelector.toUpperCase())) {
         this.flag = true;
         this.code = "6010:非法UE内部选配器";
-      } else if (!this.souceTypelist.includes(params.souceType.toUpperCase())) {
+      } else if (!this.souceTypelist.includes(params.sourceType.toUpperCase())) {
         this.flag = true;
         this.code = "6000:系统来源参数有误";
       } else if (!params.deploy || params.deploy === '"') {
@@ -333,7 +333,7 @@ export default {
           appKey: this.params.appKey,
           boxId: this.box,
           deploy: this.params.deploy,
-          souceType: this.params.souceType.toUpperCase(),
+          sourceType: this.params.sourceType.toUpperCase(),
           ueMode: this.params.ueMode.toUpperCase(),
           screenShow:
             this.params.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断

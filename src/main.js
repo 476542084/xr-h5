@@ -6,8 +6,8 @@ import "element-plus/dist/index.css";
 import VueWechatTitle from "vue-wechat-title";
 import { ShareSheet } from "vant";
 
-const souceType = new URLSearchParams(window.location.search).get("souceType");
-switch (souceType) {
+const sourceType = new URLSearchParams(window.location.search).get("sourceType");
+switch (sourceType) {
   case '"APP_01"':
     window.souceType_port = "小程序";
     break;
