@@ -52,7 +52,7 @@ import CarSelect from "@/components/CarSelect.vue";
 import ButtomMenu from "@/components/ButtomMenu.vue";
 import D2 from "@/components/2D.vue";
 import Loading from "@/components/Loading.vue";
-import Gacrender from "../utils/Gacrender1.0.8.js";
+import Gacrender from "../utils/Gacrender.js";
 import qs from "qs";
 import { timeLineIdMapNum, numMapObj } from "@/utils/map";
 export default {
@@ -274,7 +274,14 @@ export default {
                     featureCode: "HSCREEN",
                     selected: true,
                   });
-                  console.log("selectModel：obj", obj)
+                  obj.push({
+                    timeLineId: "FOTHSS-00000001", //唯一编码
+                    groupCode: "OTHER",
+                    familyCode: "SOURCETYPE",
+                    featureCode: that.params.souceType.toUpperCase(),
+                    selected: true,
+                  });
+                  // console.log("selectModel：obj", obj)
                   // this.obj = e.data.responseData[0].data
                   window.app.selectModel(
                     window.activeCar.timeLineId,
@@ -580,6 +587,13 @@ export default {
             // console.log('option', option, +option, numMapObj.get(+option))
             return numMapObj.get(+option);
           });
+          objArray.concat({
+            timeLineId: "FOTHSS-00000001", //唯一编码
+            groupCode: "OTHER",
+            familyCode: "SOURCETYPE",
+            featureCode: this.params.souceType.toUpperCase(),
+            selected: true,
+          })
           app.selectModel(
             this.params.shareTimeLineId || "LC-00000001",
             // objArray,

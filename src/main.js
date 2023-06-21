@@ -15,7 +15,10 @@ switch (souceType) {
     window.souceType_port = "app";
     break;
   case '"APP_03"':
-    window.souceType_port = "大屏";
+    window.souceType_port = "大屏-H5";
+    break;
+  case '"APP_04"':
+    window.souceType_port = "大屏-APP";
     break;
   default:
     window.souceType_port = "unknown";
