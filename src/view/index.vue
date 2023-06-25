@@ -111,7 +111,7 @@ export default {
       deploylist: ["1", "2"],
       screenShowlist: ["HSCREEN", "VSCREEN"],
       ueSelectorlist: ["ON", "OFF"],
-      souceTypelist: ["APP_01", "APP_02", "APP_03", "APP_00"],
+      souceTypelist: ["APP_01", "APP_02", "APP_03", "APP_00", "APP_04"],
     };
   },
   mounted() {
@@ -493,11 +493,6 @@ export default {
         this.code = "6000:系统来源参数不能为空";
         return;
       }
-      // else if (!params.timeLineId || params.sourceType === "\"") {
-      //   this.flag = true
-      //   this.code = "6001:时间线ID参数不能为空"
-      //   return
-      // }
       else if (!params.appKey || params.appKey === '"') {
         this.flag = true;
         this.code = "6002:appKey参数不能为空";
@@ -582,37 +577,49 @@ export default {
             // console.log('option', option, +option, numMapObj.get(+option))
             return numMapObj.get(+option);
           });
-          objArray.concat({
+          objArray.push({
             timeLineId: "FOTHSS-00000001", //唯一编码
             groupCode: "OTHER",
             familyCode: "SOURCETYPE",
             featureCode: this.params.sourceType.toUpperCase(),
             selected: true,
           })
+          objArray.push({
+            timeLineId: "FOTHSS-00000001", //唯一编码
+            groupCode: "OTHER",
+            familyCode: "SCREENSHOW",
+            featureCode: "HSCREEN",
+            selected: true,
+          })
           app.selectModel(
             this.params.shareTimeLineId || "LC-00000001",
             // objArray,
-            objArray.concat({
-              timeLineId: "FOTHSS-00000001", //唯一编码
-              groupCode: "OTHER",
-              familyCode: "SCREENSHOW",
-              featureCode: "HSCREEN",
-              selected: true,
-            })
+            objArray
           );
 
           console.info(
-            "selectModel:objArray-------",
-            objArray.concat({
-              timeLineId: "FOTHSS-00000001", //唯一编码
-              groupCode: "OTHER",
-              familyCode: "SCREENSHOW",
-              featureCode: "HSCREEN",
-              selected: true,
-            })
+            "optionMap, selectModel:", objArray
           );
         } else {
-          app.selectModel("LC-00000001");
+          let objArray2 = []
+          objArray2.push({
+            timeLineId: "FOTHSS-00000001", //唯一编码
+            groupCode: "OTHER",
+            familyCode: "SOURCETYPE",
+            featureCode: this.params.sourceType.toUpperCase(),
+            selected: true,
+          })
+          objArray2.push({
+            timeLineId: "FOTHSS-00000001", //唯一编码
+            groupCode: "OTHER",
+            familyCode: "SCREENSHOW",
+            featureCode: "HSCREEN",
+            selected: true,
+          })
+          console.info(
+            "selectModel:", objArray2
+          );
+          app.selectModel("LC-00000001", objArray2);
         }
       }
     },
