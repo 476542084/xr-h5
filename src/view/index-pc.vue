@@ -67,7 +67,7 @@ export default {
       deploylist: ["1", "2"],
       screenShowlist: ["HSCREEN", "VSCREEN"],
       ueSelectorlist: ["ON", "OFF"],
-      souceTypelist: ["APP_01", "APP_02", "APP_03", "APP_00"],
+      souceTypelist: ["APP_01", "APP_02", "APP_03", "APP_00", "APP_04"],
     };
   },
   mounted() {
@@ -137,7 +137,7 @@ export default {
                 }
               } catch (error) {
                 console.error(error);
-               }
+              }
             }
 
             if (e.data.reqTimeLineId === "GETS-00000001") {
@@ -159,6 +159,13 @@ export default {
                     "familyCode": "SCREENSHOW",
                     "featureCode": "HSCREEN",
                     "selected": true
+                  })
+                  obj.push({
+                    timeLineId: "FOTHSS-00000001", //唯一编码
+                    groupCode: "OTHER",
+                    familyCode: "SOURCETYPE",
+                    featureCode: that.params.sourceType.toUpperCase(),
+                    selected: true,
                   })
                   console.log('add extend obj after----', obj)
                   // this.obj = e.data.responseData[0].data
@@ -357,6 +364,12 @@ export default {
             "familyCode": "SCREENSHOW",
             "featureCode": "HSCREEN",
             "selected": true
+          }, {
+            timeLineId: "FOTHSS-00000001", //唯一编码
+            groupCode: "OTHER",
+            familyCode: "SOURCETYPE",
+            featureCode: this.params.sourceType.toUpperCase(),
+            selected: true,
           }
         ]);
       }
