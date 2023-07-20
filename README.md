@@ -1,24 +1,7 @@
-# project2
+## uat 测试环境:
 
-## Project setup
-```
-npm install
-```
+serve2-test| build2-test sh: deploy.uat.sh
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 正式环境
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+serve1-prod | build1-prod 压缩包 => tony 更新
