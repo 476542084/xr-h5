@@ -21,7 +21,7 @@
       <!-- 当展示图标以及2d才展示2d序列图 -->
       <D2 v-if="show2d" />
 
-      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="213" :activityId="240" />
+      <ButtomMenu v-if="enter" :isMiniprogram="isMiniprogram" :goodId="goodId" :activityId="240" />
 
       <!-- car select list -->
       <CarSelect v-if="showCarSelect && !show2d" :activeCar="activeCar" :onChange="handerCarChange" />
@@ -54,12 +54,13 @@ import D2 from "@/components/2D.vue";
 import Loading from "@/components/Loading.vue";
 import Gacrender from "../utils/Gacrender.js";
 import qs from "qs";
-import { timeLineIdMapNum, numMapObj } from "@/utils/map";
 export default {
   components: { ButtomMenu, Loading, CarSelect, D2 },
   name: "ViEw",
   data() {
     return {
+      timeLineIdMapNum: null,
+      numMapObj: null,
       manualPlayTimer: null,
       logo2D: require("../images/2d/2d.png"),
       logo3D: require("../images/2d/3d.png"),
@@ -114,11 +115,9 @@ export default {
       souceTypelist: ["APP_01", "APP_02", "APP_03", "APP_00", "APP_04"],
     };
   },
-  mounted() {
-
-
-
+  async mounted() {
     try {
+
 
       const shareTimeLineId = new URLSearchParams(window.location.search).get(
         "shareTimeLineId"
@@ -130,6 +129,17 @@ export default {
       } else {
         window.activeCar = this.activeCar;
       }
+
+      await fetch(`${process.env.VUE_APP_webAddress}/material/extends-options.json`)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log('----------json', json)
+          this.timeLineIdMapNum = json.timeLineIdMapNum
+          this.numMapObj = json.numMapObj
+          this.goodId = json.goodId[window.activeCar.timeLineId].goodId
+          console.info('--------jsonInfo', { goodId: this.goodId, timeLineIdMapNum: this.timeLineIdMapNum, numMapObj: this.numMapObj })
+          return json
+        });
 
       window.addEventListener("beforeunload", function () {
         const time = (+new Date() - window.startTime) / 1000;
@@ -255,7 +265,7 @@ export default {
                   if (Array.isArray(carStatus) && carStatus.length) {
                     window.optionMap = "";
                     carStatus.forEach((status) => {
-                      const num = timeLineIdMapNum.get(status.timeLineId);
+                      const num = this.timeLineIdMapNum[status.timeLineId];
                       // console.log('num', num, status.timeLineId)
                       if (num) {
                         window.optionMap = !window.optionMap
@@ -574,8 +584,8 @@ export default {
         if (this.params.optionMap) {
           // console.log('this.params.optionMap', this.params.optionMap)
           objArray = this.params.optionMap.split(",").map((option) => {
-            // console.log('option', option, +option, numMapObj.get(+option))
-            return numMapObj.get(+option);
+            console.log('option', option, +option, this.numMapObj)
+            return this.numMapObj[option];
           });
           objArray.push({
             timeLineId: "FOTHSS-00000001", //唯一编码

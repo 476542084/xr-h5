@@ -6,7 +6,7 @@ PKG_SERVERS=(
 DEFAULT_SERVER="183.240.203.111"
 DEFAULT_PORT='22'
 DEFAULT_ROOT='root'
-TAR_DIR='/mnt/data/wwwroot/live/material/'
+TAR_DIR='/mnt/data/wwwroot/uat/material/'
 TAR_NAME='trumpchi-e9-cloud-in-material.tar.gz'
 DIST='./material'
 
