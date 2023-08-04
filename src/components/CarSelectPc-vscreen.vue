@@ -21,12 +21,13 @@
           ? 'car-item active'
           : 'car-item'
           " v-for="(car, index) in carList" :key="`car-${index}`" @click.stop="() => {
+    if (car.disabled) return
     this.onChange(car);
     this.openList = false;
   }
     ">
-          <span>{{ car.title }} </span>
-          {{ car.version }}
+          <span :class="car.disabled ? 'disabled' : ''">{{ car.title }} {{ car.version }} </span>
+          <span v-if="!!car.sub" :class="car.disabled ? 'sub disabled' : 'sub'">{{ car.sub }}</span>
         </div>
       </div>
     </div>
@@ -40,11 +41,7 @@ export default {
   data() {
     return {
       openList: false,
-      carList: [
-        { title: "传祺E9", version: "PRO", timeLineId: "LC-00000003" },
-        { title: "传祺E9", version: "MAX", timeLineId: "LC-00000002" },
-        { title: "传祺E9", version: "宗师", timeLineId: "LC-00000001" },
-      ],
+      carList: window.carList,
     };
   },
   methods: {},
@@ -55,7 +52,7 @@ export default {
 <style lang="less" scoped>
 .car-list {
   z-index: 9999;
-  width: 550px;
+  width: 600px;
   display: flex;
   flex-flow: column;
   color: #fffffd;
@@ -95,8 +92,8 @@ export default {
       top: 15px;
       font-style: normal;
       font-size: 70px;
-      height: 60px;
-      line-height: 60px;
+      height: 80px;
+      line-height: 80px;
       text-align: center;
       color: #b0b6bc;
       border-radius: 0 5px 5px 0;
@@ -131,18 +128,29 @@ export default {
 
     .car-item {
       cursor: pointer;
-      height: 120px;
-      line-height: 120px;
       font-size: 86px;
-      // text-shadow: 2px 2px 4px #443c3c;
       color: #58595b;
-      // text-align: center;
-      padding-left: 10px;
+      padding-left: 35px;
+
+      height: 170px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      line-height: 1;
+
     }
 
     .active {
       color: white;
       background-color: #56a6e4;
+    }
+
+    .sub {
+      padding-left: 55px;
+    }
+
+    .disabled {
+      color: #CCCCCC;
     }
   }
 }

@@ -101,13 +101,13 @@ export default {
       ueMode: "UEMODE_01",
       screenShow: "VSCREEN",
       ueSelector: "ON",
-      carlist: [
-        "LC-00000001",
-        "LC-00000002",
-        "LC-00000003",
-        "LC-00000004",
-        "LC-00000005",
-      ],
+      // carlist: [
+      //   "LC-00000001",
+      //   "LC-00000002",
+      //   "LC-00000003",
+      //   "LC-00000004",
+      //   "LC-00000005",
+      // ],
       melist: ["UEMODE_01", "UEMODE_02", "UEMODE_03"],
       deploylist: ["1", "2"],
       screenShowlist: ["HSCREEN", "VSCREEN"],
@@ -264,13 +264,17 @@ export default {
                   //window.carStatus
                   if (Array.isArray(carStatus) && carStatus.length) {
                     window.optionMap = "";
+                    console.log('timeLineIdMapNum---', that.timeLineIdMapNum)
                     carStatus.forEach((status) => {
-                      const num = this.timeLineIdMapNum[status.timeLineId];
-                      // console.log('num', num, status.timeLineId)
-                      if (num) {
-                        window.optionMap = !window.optionMap
-                          ? num
-                          : `${window.optionMap},${num}`;
+                      console.log('status---', status)
+                      if ([status.timeLineId] in that.timeLineIdMapNum) {
+                        const num = that.timeLineIdMapNum[status.timeLineId];
+                        // console.log('num', num, status.timeLineId)
+                        if (num) {
+                          window.optionMap = !window.optionMap
+                            ? num
+                            : `${window.optionMap},${num}`;
+                        }
                       }
                     });
                   }
