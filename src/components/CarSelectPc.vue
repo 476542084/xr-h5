@@ -4,8 +4,8 @@
     <img class="car-title" src="../images/pc/car-title.png" alt="car-title" />
     <div class="car-content">
       <div class="version" @click.stop="() => {
-          this.openList = !this.openList;
-        }
+        this.openList = !this.openList;
+      }
         ">
         <span>{{ activeCar.title }} {{ activeCar.version }}</span>
         <i class="icon" :style="openList ? `transform: rotate(180deg);` : 'unset'"><svg width="1em" height="1em"
@@ -18,15 +18,17 @@
       <div class="car-select" :style="`opacity: ${openList ? 1 : 0};transform:${openList ? 'scaleY(1)' : 'scaleY(0)'
         };`">
         <div :class="car.timeLineId === activeCar.timeLineId
-            ? 'car-item active'
-            : 'car-item'
+          ? 'car-item active'
+          : 'car-item'
           " v-for="(car, index) in carList" :key="`car-${index}`" @click.stop="() => {
-      this.onChange(car);
-      this.openList = false;
-    }
+    if (car.disabled) return
+    this.onChange(car);
+    this.openList = false;
+  }
     ">
-          <span>{{ car.title }} </span>
-          {{ car.version }}
+          <span :class="car.disabled ? 'disabled' : ''">{{ car.title }} {{ car.version }} </span>
+          <span v-if="!!car.sub" :class="car.disabled ? 'sub disabled' : 'sub'">{{ car.sub }}</span>
+
         </div>
       </div>
     </div>
@@ -40,11 +42,7 @@ export default {
   data() {
     return {
       openList: false,
-      carList: [
-        { title: "传祺E9", version: "PRO", timeLineId: "LC-00000003" },
-        { title: "传祺E9", version: "MAX", timeLineId: "LC-00000002" },
-        { title: "传祺E9", version: "宗师", timeLineId: "LC-00000001" },
-      ],
+      carList: window.carList,
     };
   },
   methods: {},
@@ -126,7 +124,7 @@ export default {
       border: 1px solid while;
       // bottom: -120px;
       transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-      max-height: 200px;
+      max-height: 250px;
       overflow-y: auto;
       background-color: white;
       // border: 0.5px solid #58595B;
@@ -137,18 +135,28 @@ export default {
 
     .car-item {
       cursor: pointer;
-      height: 36px;
-      line-height: 36px;
       font-size: 18px;
-      // text-shadow: 2px 2px 4px #443c3c;
       color: #58595b;
-      // text-align: center;
-      padding-left: 8px;
+      padding-left: 12px;
+
+      height: 40px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+
     }
 
     .active {
       color: white;
       background-color: #56a6e4;
+    }
+
+    .sub {
+      padding-left: 12px;
+    }
+
+    .disabled {
+      color: #CCCCCC;
     }
   }
 }

@@ -41,7 +41,6 @@
 // import OpenApp from "./OpenApp.vue";
 import wechatMoments from "../images/wechat-moments.png";
 import wechat from "../images/wechat.png";
-// import { timeLineIdMapNum } from "@/utils/map";
 export default {
   // components: { OpenApp },
   name: "ButtomMenu",

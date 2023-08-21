@@ -56,13 +56,13 @@ export default {
       ueMode: "UEMODE_01",
       screenShow: "VSCREEN",
       ueSelector: "ON",
-      carlist: [
-        "LC-00000001",
-        "LC-00000002",
-        "LC-00000003",
-        "LC-00000004",
-        "LC-00000005",
-      ],
+      // carlist: [
+      //   "LC-00000001",
+      //   "LC-00000002",
+      //   "LC-00000003",
+      //   "LC-00000004",
+      //   "LC-00000005",
+      // ],
       melist: ["UEMODE_01", "UEMODE_02", "UEMODE_03"],
       deploylist: ["1", "2"],
       screenShowlist: ["HSCREEN", "VSCREEN"],
@@ -157,7 +157,7 @@ export default {
                     "timeLineId": "FOTHSS-00000001", //唯一编码
                     "groupCode": "OTHER",
                     "familyCode": "SCREENSHOW",
-                    "featureCode": "HSCREEN",
+                    "featureCode": that.params.screenShow.toUpperCase(),
                     "selected": true
                   })
                   obj.push({
@@ -309,10 +309,10 @@ export default {
         this.flag = true;
         this.code = "6008:非法UE服务部署方式";
       }
-      //  else if (!this.screenShowlist.includes(params.screenShow.toUpperCase())) {
-      //   this.flag = true
-      //   this.code = "6009:非法屏幕展示方式"
-      // }
+      else if (!this.screenShowlist.includes(params.screenShow.toUpperCase())) {
+        this.flag = true
+        this.code = "6009:非法屏幕展示方式"
+      }
       else if (!this.ueSelectorlist.includes(params.ueSelector.toUpperCase())) {
         this.flag = true;
         this.code = "6010:非法UE内部选配器";
@@ -324,11 +324,11 @@ export default {
         this.code = "6008:非法UE服务部署方式";
         return;
       }
-      // else if (!params.screenShow || params.screenShow === "\"") {
-      //   this.flag = true
-      //   this.code = "6009:非法屏幕展示方式"
-      //   return
-      // }
+      else if (!params.screenShow || params.screenShow === "\"") {
+        this.flag = true
+        this.code = "6009:非法屏幕展示方式"
+        return
+      }
       else if (!params.ueSelector || params.ueSelector === '"') {
         this.flag = true;
         this.code = "6010:非法UE内部选配器";
@@ -342,8 +342,8 @@ export default {
           deploy: this.params.deploy,
           sourceType: this.params.sourceType.toUpperCase(),
           ueMode: this.params.ueMode.toUpperCase(),
-          screenShow:
-            this.params.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断
+          screenShow: this.params.screenShow.toUpperCase(),
+          // this.params.ueMode.toUpperCase() === "UEMODE_03" ? "HSCREEN" : "VSCREEN", //根据ueMode判断
           ueSelector: this.params.ueSelector.toUpperCase(),
           webAddress: process.env.VUE_APP_webAddress,
         };
@@ -362,7 +362,7 @@ export default {
             "timeLineId": "FOTHSS-00000001", //唯一编码
             "groupCode": "OTHER",
             "familyCode": "SCREENSHOW",
-            "featureCode": "HSCREEN",
+            "featureCode": this.params.screenShow.toUpperCase(),
             "selected": true
           }, {
             timeLineId: "FOTHSS-00000001", //唯一编码
