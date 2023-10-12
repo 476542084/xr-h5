@@ -1,12 +1,27 @@
 <template>
-  <div class="buttom_menu" @touchstart.stop @touchmove.stop.prevent @touchend.stop @mousewheel.stop>
+  <div
+    class="buttom_menu"
+    @touchstart.stop
+    @touchmove.stop.prevent
+    @touchend.stop
+    @mousewheel.stop
+  >
     <div class="btns">
       <div v-if="!isMiniprogram" class="btns_container">
-        <div v-for="(btn, idx) in btnsConfig" :key="btn.name" class="btn_item"
-          :class="[{ active: btn.name == currBtnName }, btn.class]" @click.stop="(e) => handleClickBtn(btn, idx, e)">
+        <div
+          v-for="(btn, idx) in btnsConfig"
+          :key="btn.name"
+          class="btn_item"
+          :class="[{ active: btn.name == currBtnName }, btn.class]"
+          @click.stop="(e) => handleClickBtn(btn, idx, e)"
+        >
           <div class="item_line left"></div>
           <div class="item_box">
-            <img v-show="btn.name == currBtnName" :src="btn.activeIcon" alt="" />
+            <img
+              v-show="btn.name == currBtnName"
+              :src="btn.activeIcon"
+              alt=""
+            />
             <img v-show="btn.name != currBtnName" :src="btn.icon" alt="" />
             <div class="item_name">{{ btn.name }}</div>
           </div>
@@ -19,12 +34,23 @@
     </div>
     <!-- <open-app v-if="!isMiniprogram"></open-app> -->
     <div class="share-sheet">
-      <van-share-sheet :show="showShare" title="立即分享给好友" :options="options" @select="onSelect" @cancel="() => {
-          showShare = false;
-        }
-        " />
+      <van-share-sheet
+        :show="showShare"
+        title="立即分享给好友"
+        :options="options"
+        @select="onSelect"
+        @cancel="
+          () => {
+            showShare = false;
+          }
+        "
+      />
     </div>
-    <div class="app-download-miniprogram" v-if="isMiniprogram && showDownloadCode" @click="setDownloadFalse">
+    <div
+      class="app-download-miniprogram"
+      v-if="isMiniprogram && showDownloadCode"
+      @click="setDownloadFalse"
+    >
       <div @click.stop class="code">
         <img src="../images/applogo.png" alt="app下载" />
       </div>
@@ -63,6 +89,9 @@ export default {
       const goodId = this.goodId,
         // 活动id
         activityId = this.activityId;
+
+      const ua = navigator.userAgent.toLowerCase();
+      const isClient2 = ua.includes("channel/gacclient");
       return [
         {
           name: "分享",
@@ -76,7 +105,9 @@ export default {
           class: "book",
           icon: require("../images/立即预订-未选.png"),
           activeIcon: require("../images/立即预订-选中.png"),
-          url: `gac://order_now?id=${goodId}`,
+          url: isClient2
+            ? `gac://www.gacmotor.com/showroom/orderNow?goodsCarId=${goodId}`
+            : `gac://order_now?id=${goodId}`,
           sa: "立即预定",
         },
         {
@@ -84,8 +115,12 @@ export default {
           class: "drive",
           icon: require("../images/预约试驾-未选.png"),
           activeIcon: require("../images/预约试驾-选中.png"),
-          url: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
-          url2: `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
+          url: isClient2
+            ? `https://next.gacmotor.com/mall/act/test-drive?id=${activityId}`
+            : `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
+          url2: isClient2
+            ? `https://next.gacmotor.com/mall/act/test-drive?id=${activityId}`
+            : `https://mall.gacmotor.com/act/test-drive?id=${activityId}`,
           sa: "预约试驾",
         },
         {
@@ -93,8 +128,12 @@ export default {
           class: "config",
           icon: require("../images/参数配置-未选.png"),
           activeIcon: require("../images/参数配置-选中.png"),
-          url: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
-          url2: `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
+          url: isClient2
+            ? `https://next.gacmotor.com/mall/detail/comparison?goodsCarId=${goodId}`
+            : `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
+          url2: isClient2
+            ? `https://next.gacmotor.com/mall/detail/comparison?goodsCarId=${goodId}`
+            : `https://mall.gacmotor.com/detail/comparison?goodsCarId=${goodId}`,
           sa: "参数配置",
         },
         {
@@ -102,7 +141,9 @@ export default {
           class: "consults",
           icon: require("../images/在线客服-未选.png"),
           activeIcon: require("../images/在线客服-选中.png"),
-          url: "gac://ntalker",
+          url: isClient2
+            ? "gac://www.gacmotor.com/onlineservice/onlineCustomerService?type=1"
+            : "gac://ntalker",
           sa: "在线客服",
         },
       ];
@@ -117,7 +158,7 @@ export default {
     // });
   },
   methods: {
-    sensorsInit() { },
+    sensorsInit() {},
     setDownloadFalse() {
       this.showDownloadCode = false;
     },
@@ -132,12 +173,12 @@ export default {
       try {
         window.sensors.track("vr_carType_details_btnClick", {
           btn_type: item.sa,
-          btn_name:'',
+          btn_name: "",
           car_series: "mpv",
           car_type: "E9",
           cartype_version: window.activeCar.version,
           uid: window.uid,
-          port: window.souceType_port
+          port: window.souceType_port,
         });
       } catch (error) {
         console.error("sensors quick error", error);
@@ -393,10 +434,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -420,10 +463,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .left {
@@ -465,10 +510,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -511,10 +558,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -544,10 +593,12 @@ export default {
           .item_line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0) 0%,
-                #e9e9e9 50%,
-                rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0) 0%,
+              #e9e9e9 50%,
+              rgba(255, 255, 255, 0) 100%
+            );
           }
 
           .right {
@@ -575,7 +626,6 @@ export default {
 
 @media screen and (max-width: 320px) {
   .btns_container {
-
     .btn_item:nth-child(2),
     .btn_item:nth-child(3),
     .btn_item:nth-child(4) {
