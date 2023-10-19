@@ -54,8 +54,8 @@ window.carList = [
     version: "冠军",
     sa: "冠军",
     timeLineId: "LC-00000004",
-    disabled: true,
-    sub: "(敬请期待)",
+    disabled: false,
+    // sub: "(敬请期待)",
   },
 ];
 
